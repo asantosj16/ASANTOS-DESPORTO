@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { Timer, Footprints, Calculator, RefreshCw, Target, Clock, Wind, Plus, Trophy } from 'lucide-react';
+import { Timer, Footprints, Calculator, RefreshCw, Target, Clock, Wind, Plus, Trophy, Zap } from 'lucide-react';
 import { RunningLog } from '../types';
 import RunningPeriodization from './RunningPeriodization';
 
@@ -76,90 +76,145 @@ const RunningSection: React.FC = () => {
 
   return (
     <div className="space-y-8 animate-fade-in-up">
-      {/* Calculadoras */}
+      {/* Calculadoras Principais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Calculadora de Pace Profissional */}
         <div className="glass-card rounded-[2.5rem] overflow-hidden border-orange-500/20 shadow-2xl">
-          <div className="p-8 border-b border-slate-800 bg-orange-900/10 flex items-center justify-between">
+          <div className="p-8 border-b border-slate-800 bg-orange-900/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <Calculator className="text-orange-500" />
-              <h3 className="text-xl font-bold uppercase tracking-tight">Calculadora de Pace</h3>
+              <div className="bg-orange-600 p-2 rounded-xl text-white shadow-lg">
+                <Calculator size={20} />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold uppercase tracking-tight text-white">Calculadora de Pace</h3>
+                <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Performance & Estimativa</p>
+              </div>
             </div>
-            <button 
-              onClick={() => setCalcUnit(prev => prev === 'km' ? 'mi' : 'km')}
-              className="px-4 py-2 bg-slate-900 border border-slate-700 rounded-xl text-[10px] font-black uppercase text-orange-400 hover:bg-orange-600 hover:text-white transition-all flex items-center gap-2 shadow-lg"
-            >
-              <RefreshCw size={12} /> {calcUnit === 'km' ? 'Quilómetros' : 'Milhas'}
-            </button>
+            
+            {/* Toggle de Unidade */}
+            <div className="flex bg-slate-950 p-1 rounded-2xl border border-slate-800 w-fit">
+              <button 
+                onClick={() => setCalcUnit('km')}
+                className={`px-4 py-2 rounded-xl text-[10px] font-black transition-all uppercase ${calcUnit === 'km' ? 'bg-orange-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+              >
+                KM
+              </button>
+              <button 
+                onClick={() => setCalcUnit('mi')}
+                className={`px-4 py-2 rounded-xl text-[10px] font-black transition-all uppercase ${calcUnit === 'mi' ? 'bg-orange-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
+              >
+                MILHAS
+              </button>
+            </div>
           </div>
           
           <div className="p-8 space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-500 uppercase flex items-center gap-2">
-                  <Target size={14} className="text-orange-500" /> Distância ({calcUnit})
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Distância */}
+              <div className="space-y-4">
+                <label className="text-[10px] font-black text-slate-400 uppercase flex items-center gap-2 tracking-widest">
+                  <Target size={14} className="text-orange-500" /> Distância ({calcUnit.toUpperCase()})
                 </label>
-                <input 
-                  type="number" 
-                  value={calcDist} 
-                  onChange={(e) => setCalcDist(e.target.value)} 
-                  className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-3xl font-black text-white focus:ring-2 focus:ring-orange-500 outline-none" 
-                />
+                <div className="relative">
+                  <input 
+                    type="number" 
+                    value={calcDist} 
+                    onChange={(e) => setCalcDist(e.target.value)} 
+                    className="w-full bg-slate-800/50 border-2 border-slate-700/50 rounded-3xl p-5 text-4xl font-black text-white focus:border-orange-500 outline-none transition-all shadow-inner" 
+                  />
+                  <span className="absolute right-6 top-1/2 -translate-y-1/2 text-slate-600 font-black uppercase text-xs">{calcUnit}</span>
+                </div>
               </div>
               
-              <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-500 uppercase flex items-center gap-2">
-                  <Clock size={14} className="text-orange-500" /> Tempo (H : M : S)
+              {/* Tempo Detalhado */}
+              <div className="space-y-4">
+                <label className="text-[10px] font-black text-slate-400 uppercase flex items-center gap-2 tracking-widest">
+                  <Clock size={14} className="text-orange-500" /> Tempo Total (H:M:S)
                 </label>
-                <div className="flex gap-2 h-[68px]">
-                  <input type="number" placeholder="H" value={calcH} onChange={(e) => setCalcH(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white outline-none" />
-                  <input type="number" placeholder="M" value={calcM} onChange={(e) => setCalcM(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white outline-none" />
-                  <input type="number" placeholder="S" value={calcS} onChange={(e) => setCalcS(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white outline-none" />
+                <div className="grid grid-cols-3 gap-2 h-[84px]">
+                  <div className="relative">
+                    <input type="number" placeholder="H" value={calcH} onChange={(e) => setCalcH(e.target.value)} className="w-full h-full bg-slate-800/50 border-2 border-slate-700/50 rounded-2xl text-center text-2xl font-black text-white outline-none focus:border-orange-500 transition-all" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[8px] font-black text-slate-600 uppercase">Horas</span>
+                  </div>
+                  <div className="relative">
+                    <input type="number" placeholder="M" value={calcM} onChange={(e) => setCalcM(e.target.value)} className="w-full h-full bg-slate-800/50 border-2 border-slate-700/50 rounded-2xl text-center text-2xl font-black text-white outline-none focus:border-orange-500 transition-all" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[8px] font-black text-slate-600 uppercase">Min</span>
+                  </div>
+                  <div className="relative">
+                    <input type="number" placeholder="S" value={calcS} onChange={(e) => setCalcS(e.target.value)} className="w-full h-full bg-slate-800/50 border-2 border-slate-700/50 rounded-2xl text-center text-2xl font-black text-white outline-none focus:border-orange-500 transition-all" />
+                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-[8px] font-black text-slate-600 uppercase">Seg</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {paceResults && (
-              <div className="grid grid-cols-2 gap-4 animate-in fade-in zoom-in duration-300">
-                <div className="bg-orange-600/90 p-6 rounded-3xl text-center shadow-xl border-b-4 border-orange-800">
-                  <p className="text-[10px] font-black uppercase text-orange-200 mb-1 tracking-widest">Pace Médio</p>
-                  <div className="text-4xl font-black italic text-white">{paceResults.pace} <span className="text-[10px] not-italic opacity-70 uppercase">{paceResults.unitLabel}</span></div>
+            {/* Resultados */}
+            {paceResults ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-in fade-in slide-in-from-bottom-2 duration-500">
+                <div className="bg-gradient-to-br from-orange-600 to-orange-700 p-8 rounded-[2rem] shadow-xl relative overflow-hidden group">
+                  <div className="absolute -right-4 -bottom-4 text-white/10 group-hover:scale-110 transition-transform duration-700">
+                    <Zap size={120} />
+                  </div>
+                  <p className="text-[10px] font-black uppercase text-orange-200 mb-2 tracking-widest relative z-10">Pace Médio Necessário</p>
+                  <div className="text-5xl font-black italic text-white relative z-10">
+                    {paceResults.pace} 
+                    <span className="text-sm not-italic ml-2 opacity-80 font-black uppercase">{paceResults.unitLabel}</span>
+                  </div>
                 </div>
-                <div className="bg-slate-900 p-6 rounded-3xl text-center shadow-xl border border-slate-700">
-                  <p className="text-[10px] font-black uppercase text-slate-500 mb-1 tracking-widest">Velocidade</p>
-                  <div className="text-3xl font-black italic text-white">{paceResults.speed} <span className="text-[10px] font-black not-italic opacity-70 uppercase">{paceResults.speedLabel}</span></div>
+                
+                <div className="bg-slate-900 border border-slate-800 p-8 rounded-[2rem] shadow-xl flex flex-col justify-center">
+                  <p className="text-[10px] font-black uppercase text-slate-500 mb-2 tracking-widest">Velocidade Média</p>
+                  <div className="text-4xl font-black italic text-white">
+                    {paceResults.speed} 
+                    <span className="text-sm not-italic ml-2 text-slate-500 font-black uppercase">{paceResults.speedLabel}</span>
+                  </div>
                 </div>
+              </div>
+            ) : (
+              <div className="p-8 border-2 border-dashed border-slate-800 rounded-[2rem] text-center">
+                <p className="text-xs font-bold text-slate-600 uppercase tracking-widest">Insira os dados acima para calcular o Pace</p>
               </div>
             )}
           </div>
         </div>
 
-        {/* Teste de Cooper */}
+        {/* Teste de Cooper (VO2 Max) */}
         <div className="glass-card rounded-[2.5rem] overflow-hidden border-cyan-500/20 shadow-2xl">
           <div className="p-8 border-b border-slate-800 bg-cyan-900/10 flex items-center gap-3">
-            <Wind className="text-cyan-500" />
-            <h3 className="text-xl font-bold uppercase tracking-tight">Teste de Cooper (12 min)</h3>
+            <div className="bg-cyan-600 p-2 rounded-xl text-white shadow-lg">
+              <Wind size={20} />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold uppercase tracking-tight text-white">Teste de Cooper (12 min)</h3>
+              <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Capacidade Cardiorrespiratória</p>
+            </div>
           </div>
           <div className="p-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Distância Percorrida (m)</label>
-                <input type="number" value={cooperDist} onChange={(e) => setCooperDist(e.target.value)} className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-2xl font-black text-white focus:ring-2 focus:ring-cyan-500 outline-none" />
+              <div className="space-y-4">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Distância Percorrida (metros)</label>
+                <input type="number" value={cooperDist} onChange={(e) => setCooperDist(e.target.value)} className="w-full bg-slate-800/50 border-2 border-slate-700/50 rounded-2xl p-4 text-3xl font-black text-white focus:border-cyan-500 outline-none transition-all" />
               </div>
-              <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Género</label>
-                <div className="flex bg-slate-900 p-1 rounded-2xl h-[60px] border border-slate-800">
+              <div className="space-y-4">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Género</label>
+                <div className="flex bg-slate-950 p-1 rounded-2xl h-[68px] border border-slate-800">
                   <button onClick={() => setCooperGender('male')} className={`flex-1 rounded-xl text-[10px] font-black transition-all ${cooperGender === 'male' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-500'}`}>MASCULINO</button>
                   <button onClick={() => setCooperGender('female')} className={`flex-1 rounded-xl text-[10px] font-black transition-all ${cooperGender === 'female' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-500'}`}>FEMININO</button>
                 </div>
               </div>
             </div>
             {vo2Results && (
-              <div className="bg-slate-950 p-6 rounded-3xl border border-slate-800 text-center animate-in slide-in-from-top-2">
+              <div className="bg-slate-950 p-8 rounded-[2rem] border border-slate-800 text-center animate-in slide-in-from-top-2 relative overflow-hidden">
+                 <div className="absolute top-0 left-0 w-full h-1 bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]"></div>
                  <p className="text-[10px] font-black text-slate-500 uppercase mb-2 tracking-widest">VO2 Máximo Estimado</p>
-                 <div className="text-5xl font-black italic text-white mb-2">{vo2Results.value} <span className="text-xs text-slate-500">ml/kg/min</span></div>
-                 <div className={`text-sm font-black uppercase tracking-widest ${vo2Results.color}`}>Nível: {vo2Results.label}</div>
+                 <div className="text-6xl font-black italic text-white mb-2 tracking-tighter">
+                   {vo2Results.value} 
+                   <span className="text-xs not-italic text-slate-500 ml-2">ml/kg/min</span>
+                 </div>
+                 <div className={`text-sm font-black uppercase tracking-[0.2em] ${vo2Results.color}`}>
+                   Classificação: {vo2Results.label}
+                 </div>
               </div>
             )}
           </div>
