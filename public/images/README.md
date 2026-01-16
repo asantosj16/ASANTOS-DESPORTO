@@ -1,6 +1,10 @@
+
 # Imagens Públicas - ASANTOS DESPORTO
 
-Esta pasta (`/public/images/`) é o local centralizado para armazenar todos os ativos visuais estáticos da plataforma que não precisam ser processados pelo empacotador (bundler).
+Esta pasta (`/public/images/`) é o local centralizado para armazenar todos os ativos visuais estáticos da plataforma.
+
+### Arquivos Atuais:
+- `avatar.jpg`: Foto de perfil oficial do profissional Anderson Santos.
 
 ### Estrutura Sugerida:
 - `/avatars`: Fotos de perfil e avatares de usuários.
@@ -13,12 +17,12 @@ Esta pasta (`/public/images/`) é o local centralizado para armazenar todos os a
 #### Em Componentes React:
 ```tsx
 // O caminho deve começar com /public/images/
-<img src="/public/images/seu-arquivo.png" alt="Descrição" />
+<img src="/public/images/avatar.jpg" alt="Descrição" />
 ```
 
 #### Em Arquivos CSS/Tailwind (no index.html):
 ```css
 .minha-classe {
-  background-image: url('/public/images/background.jpg');
+  background-image: url('/public/images/avatar.jpg');
 }
 ```

@@ -12,8 +12,8 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  // Caminho absoluto para a imagem local ou externa estável
-  const avatarUrl = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=200"; 
+  // Caminho local após a importação para o diretório de ativos estáticos
+  const avatarUrl = "/public/images/avatar.jpg"; 
 
   const sizeClasses = {
     sm: 'w-10 h-10',
@@ -34,16 +34,17 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
       onClick={onClick}
       className={`relative rounded-full flex items-center justify-center bg-slate-900 border-2 border-slate-700/50 shadow-2xl transition-all duration-500 hover:scale-105 active:scale-95 group ${sizeClasses[size]} ${className} ${onClick ? 'cursor-pointer' : ''}`}
     >
-      <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 to-sky-400/30 rounded-full blur-md opacity-100 group-hover:opacity-70 transition-opacity"></div>
+      {/* Glow Effect */}
+      <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/40 to-sky-400/40 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-      <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
+      <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-800 flex items-center justify-center border border-white/5">
         {!error ? (
           <>
             <img
               src={avatarUrl}
-              alt="Perfil Profissional"
+              alt="Anderson Santos - ASANTOS DESPORTO"
               referrerPolicy="no-referrer"
-              className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+              className={`w-full h-full object-cover transition-all duration-700 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
               onLoad={() => setLoaded(true)}
               onError={() => setError(true)}
             />
@@ -61,8 +62,8 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
       </div>
       
       {size === 'xl' && (
-        <div className="absolute -bottom-1 -right-1 bg-blue-600 text-white p-1.5 rounded-full border-2 border-slate-950 shadow-lg z-20">
-           <ShieldCheck size={14} fill="currentColor" />
+        <div className="absolute -bottom-1 -right-1 bg-blue-600 text-white p-2 rounded-full border-2 border-slate-950 shadow-lg z-20 group-hover:bg-blue-500 transition-colors">
+           <ShieldCheck size={16} fill="currentColor" />
         </div>
       )}
     </div>
