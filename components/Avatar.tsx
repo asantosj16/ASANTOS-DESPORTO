@@ -12,8 +12,8 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  // Caminho absoluto para evitar problemas de roteamento no Vercel
-  const avatarUrl = "/images/Perfil.jpg"; 
+  // Caminho absoluto para a imagem local ou externa estável
+  const avatarUrl = "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80&w=200"; 
 
   const sizeClasses = {
     sm: 'w-10 h-10',
@@ -42,6 +42,7 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
             <img
               src={avatarUrl}
               alt="Perfil Profissional"
+              referrerPolicy="no-referrer"
               className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
               onLoad={() => setLoaded(true)}
               onError={() => setError(true)}
