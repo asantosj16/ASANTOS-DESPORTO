@@ -1,28 +1,25 @@
 
 # Imagens Públicas - ASANTOS DESPORTO
 
-Esta pasta (`/public/images/`) é o local centralizado para armazenar todos os ativos visuais estáticos da plataforma.
+Esta pasta (`/public/images/`) é servida na raiz do servidor.
 
 ### Arquivos Atuais:
-- `Perfil.jpg`: Foto de perfil oficial do profissional Anderson Santos (Substituiu avatar.jpg).
+- `Perfil.jpg`: Foto de perfil oficial (Anderson Santos).
 
-### Estrutura Sugerida:
-- `/avatars`: Fotos de perfil e avatares de usuários.
-- `/backgrounds`: Texturas, gradientes e fotos de fundo.
-- `/exercises`: Fotos ou GIFs ilustrativos de exercícios físicos.
-- `/logos`: Logomarcas e ícones personalizados.
+### Como Referenciar Corretamente:
 
-### Como Referenciar no Código:
+Para que as imagens funcionem tanto em desenvolvimento quanto após o build, **não** inclua o prefixo `/public/`.
 
-#### Em Componentes React:
+#### Correto (React):
 ```tsx
-// O caminho deve começar com /public/images/
-<img src="/public/images/Perfil.jpg" alt="Anderson Santos" />
+// O navegador resolverá para a pasta public automaticamente
+<img src="images/Perfil.jpg" alt="Anderson Santos" />
 ```
 
-#### Em Arquivos CSS/Tailwind (no index.html):
-```css
-.minha-classe {
-  background-image: url('/public/images/Perfil.jpg');
-}
+#### Incorreto (React):
+```tsx
+// Isso falhará na maioria dos ambientes de produção
+<img src="/public/images/Perfil.jpg" alt="..." />
 ```
+
+> **Nota:** Certifique-se de que o arquivo físico `Perfil.jpg` existe exatamente com este nome (incluindo a capitalização) dentro desta pasta para que o componente Avatar consiga carregá-lo.

@@ -12,8 +12,9 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  // Caminho atualizado para Perfil.jpg conforme solicitado
-  const avatarUrl = "/public/images/Perfil.jpg"; 
+  // Caminho corrigido: Em apps React/Vite, a pasta 'public' é a raiz.
+  // Portanto, acessamos diretamente via 'images/...'
+  const avatarUrl = "images/Perfil.jpg"; 
 
   const sizeClasses = {
     sm: 'w-10 h-10',
@@ -34,7 +35,7 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
       onClick={onClick}
       className={`relative rounded-full flex items-center justify-center bg-slate-900 border-2 border-slate-700/50 shadow-2xl transition-all duration-500 hover:scale-105 active:scale-95 group ${sizeClasses[size]} ${className} ${onClick ? 'cursor-pointer' : ''}`}
     >
-      {/* Glow Effect */}
+      {/* Efeito de Brilho Externo */}
       <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/40 to-sky-400/40 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
       <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-800 flex items-center justify-center border border-white/5">
@@ -43,7 +44,6 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
             <img
               src={avatarUrl}
               alt="Anderson Santos - ASANTOS DESPORTO"
-              referrerPolicy="no-referrer"
               className={`w-full h-full object-cover transition-all duration-700 ${loaded ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`}
               onLoad={() => setLoaded(true)}
               onError={() => setError(true)}
@@ -56,7 +56,8 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
           </>
         ) : (
           <div className="flex flex-col items-center justify-center text-slate-500 bg-slate-900 w-full h-full">
-            <User size={iconSizes[size] * 0.6} strokeWidth={1.5} className="opacity-40" />
+            <User size={iconSizes[size] * 0.5} strokeWidth={1.5} className="opacity-40" />
+            {size === 'xl' && <span className="text-[8px] font-black uppercase mt-2 opacity-30">Sem Foto</span>}
           </div>
         )}
       </div>
