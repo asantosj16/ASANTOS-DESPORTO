@@ -19,6 +19,7 @@ import Anamnese from './components/Anamnese';
 import NutricaoDesportiva from './components/NutricaoDesportiva';
 import SectionWrapper from './components/SectionWrapper';
 import HIITProtocols from './components/HIITProtocols';
+import ScientificDocuments from './components/ScientificDocuments';
 import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -51,7 +52,7 @@ const App: React.FC = () => {
                 { id: AppSection.HYROX, title: 'Hyrox', icon: Timer, color: 'bg-purple-600', desc: 'Treino Híbrido de Alta Intensidade' },
                 { id: AppSection.CORRIDA, title: 'Performance em Corrida', icon: Footprints, color: 'bg-orange-600', desc: 'Pace e Planilhas de Endurance' },
                 { id: AppSection.NUTRICAO, title: 'Nutrição Desportiva', icon: Apple, color: 'bg-green-600', desc: 'Alimentação para Performance' },
-                { id: AppSection.DOCUMENTOS, title: 'Documentos', icon: FileText, color: 'bg-emerald-600', desc: 'Dados Científicos e Registos' },
+                { id: AppSection.DOCUMENTOS, title: 'Documentos Científicos', icon: FileText, color: 'bg-emerald-600', desc: 'Base de Dados e Evidências HD' },
               ].map((card, i) => (
                 <button
                   key={card.id}
@@ -136,12 +137,9 @@ const App: React.FC = () => {
         );
       case AppSection.DOCUMENTOS:
         return (
-          <SectionWrapper icon={<FileText />} title="Documentos" subtitle="Base de Dados Científicos e Evidências." colorClass="bg-emerald-600">
+          <SectionWrapper icon={<FileText />} title="Documentos" subtitle="Base de Dados Científicos e Evidências HD." colorClass="bg-emerald-600">
              <AICoach section={AppSection.DOCUMENTOS} />
-             <div className="mt-4 glass-card p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] border-emerald-500/20 text-center">
-                <h4 className="text-white font-black uppercase mb-4 text-sm md:text-base">Dados Científicos</h4>
-                <p className="text-slate-400 font-medium text-xs md:text-base">Repositório de artigos, estudos de caso e registos técnicos em desenvolvimento.</p>
-             </div>
+             <ScientificDocuments />
           </SectionWrapper>
         );
       default:
