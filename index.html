@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br" class="dark">
 <head>
@@ -13,11 +14,6 @@
     <meta property="og:title" content="ASANTOS DESPORTO | Educação Física de Alto Nível">
     <meta property="og:description" content="A ferramenta definitiva para o profissional de Educação Física moderno.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?auto=format&fit=crop&q=80&w=1200">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="ASANTOS DESPORTO">
-    <meta property="twitter:description" content="Plataforma integrada de Educação Física.">
 
     <title>ASANTOS DESPORTO | Educação Física</title>
     
@@ -60,7 +56,6 @@
             color: #f8fafc;
         }
 
-        /* Camada Principal de Background - Esportes em P&B */
         .sports-bg {
             position: relative;
             min-height: 100vh;
@@ -120,11 +115,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #334155;
         }
-        
-        img {
-            user-select: none;
-            -webkit-user-drag: none;
-        }
 
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -150,5 +140,7 @@
 </head>
 <body class="sports-bg">
     <div id="root" class="content-overlay"></div>
+    <!-- Injeção obrigatória do script de entrada -->
+    <script type="module" src="./index.tsx"></script>
 </body>
 </html>

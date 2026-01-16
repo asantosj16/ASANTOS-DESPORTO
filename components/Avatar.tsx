@@ -12,7 +12,7 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  // Caminho absoluto para a pasta public em produção
+  // Caminho absoluto para evitar problemas de roteamento no Vercel
   const avatarUrl = "/images/Perfil.jpg"; 
 
   const sizeClasses = {
@@ -34,21 +34,21 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
       onClick={onClick}
       className={`relative rounded-full flex items-center justify-center bg-slate-900 border-2 border-slate-700/50 shadow-2xl transition-all duration-500 hover:scale-105 active:scale-95 group ${sizeClasses[size]} ${className} ${onClick ? 'cursor-pointer' : ''}`}
     >
-      <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 to-sky-400/30 rounded-full blur-md opacity-100 group-hover:opacity-50 transition-opacity"></div>
+      <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 to-sky-400/30 rounded-full blur-md opacity-100 group-hover:opacity-70 transition-opacity"></div>
 
       <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
         {!error ? (
           <>
             <img
               src={avatarUrl}
-              alt="Avatar do Professor"
-              className={`w-full h-full object-cover transition-all duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+              alt="Perfil Profissional"
+              className={`w-full h-full object-cover transition-opacity duration-700 ${loaded ? 'opacity-100' : 'opacity-0'}`}
               onLoad={() => setLoaded(true)}
               onError={() => setError(true)}
             />
             {!loaded && (
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
-                <User size={iconSizes[size] * 0.6} className="text-slate-600 animate-pulse" />
+              <div className="absolute inset-0 flex items-center justify-center bg-slate-800 text-slate-600">
+                <User size={iconSizes[size] * 0.6} className="animate-pulse" />
               </div>
             )}
           </>

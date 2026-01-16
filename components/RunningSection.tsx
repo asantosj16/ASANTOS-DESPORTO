@@ -113,22 +113,22 @@ const RunningSection: React.FC = () => {
                   <Clock size={14} className="text-orange-500" /> Tempo (H : M : S)
                 </label>
                 <div className="flex gap-2 h-[68px]">
-                  <input type="number" placeholder="H" value={calcH} onChange={(e) => setCalcH(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white" />
-                  <input type="number" placeholder="M" value={calcM} onChange={(e) => setCalcM(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white" />
-                  <input type="number" placeholder="S" value={calcS} onChange={(e) => setCalcS(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white" />
+                  <input type="number" placeholder="H" value={calcH} onChange={(e) => setCalcH(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white outline-none" />
+                  <input type="number" placeholder="M" value={calcM} onChange={(e) => setCalcM(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white outline-none" />
+                  <input type="number" placeholder="S" value={calcS} onChange={(e) => setCalcS(e.target.value)} className="w-1/3 bg-slate-800/50 border border-slate-700 rounded-2xl p-2 text-center text-xl font-black text-white outline-none" />
                 </div>
               </div>
             </div>
 
             {paceResults && (
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 animate-in fade-in zoom-in duration-300">
                 <div className="bg-orange-600/90 p-6 rounded-3xl text-center shadow-xl border-b-4 border-orange-800">
-                  <p className="text-[10px] font-black uppercase text-orange-200 mb-1">Ritmo de Nado</p>
-                  <div className="text-4xl font-black italic text-white">{paceResults.pace} <span className="text-[10px] not-italic opacity-70">{paceResults.unitLabel}</span></div>
+                  <p className="text-[10px] font-black uppercase text-orange-200 mb-1 tracking-widest">Pace Médio</p>
+                  <div className="text-4xl font-black italic text-white">{paceResults.pace} <span className="text-[10px] not-italic opacity-70 uppercase">{paceResults.unitLabel}</span></div>
                 </div>
                 <div className="bg-slate-900 p-6 rounded-3xl text-center shadow-xl border border-slate-700">
-                  <p className="text-[10px] font-black uppercase text-slate-500 mb-1">Velocidade</p>
-                  <div className="text-3xl font-black italic text-white">{paceResults.speed} <span className="text-[10px] not-italic opacity-70">{paceResults.speedLabel}</span></div>
+                  <p className="text-[10px] font-black uppercase text-slate-500 mb-1 tracking-widest">Velocidade</p>
+                  <div className="text-3xl font-black italic text-white">{paceResults.speed} <span className="text-[10px] font-black not-italic opacity-70 uppercase">{paceResults.speedLabel}</span></div>
                 </div>
               </div>
             )}
@@ -144,22 +144,22 @@ const RunningSection: React.FC = () => {
           <div className="p-8 space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Distância Total (m)</label>
-                <input type="number" value={cooperDist} onChange={(e) => setCooperDist(e.target.value)} className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-2xl font-black text-white" />
+                <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Distância Percorrida (m)</label>
+                <input type="number" value={cooperDist} onChange={(e) => setCooperDist(e.target.value)} className="w-full bg-slate-800/50 border border-slate-700 rounded-2xl p-4 text-2xl font-black text-white focus:ring-2 focus:ring-cyan-500 outline-none" />
               </div>
               <div className="space-y-2">
                 <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Género</label>
                 <div className="flex bg-slate-900 p-1 rounded-2xl h-[60px] border border-slate-800">
-                  <button onClick={() => setCooperGender('male')} className={`flex-1 rounded-xl text-[10px] font-black transition-all ${cooperGender === 'male' ? 'bg-cyan-600 text-white' : 'text-slate-500'}`}>MASCULINO</button>
-                  <button onClick={() => setCooperGender('female')} className={`flex-1 rounded-xl text-[10px] font-black transition-all ${cooperGender === 'female' ? 'bg-cyan-600 text-white' : 'text-slate-500'}`}>FEMININO</button>
+                  <button onClick={() => setCooperGender('male')} className={`flex-1 rounded-xl text-[10px] font-black transition-all ${cooperGender === 'male' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-500'}`}>MASCULINO</button>
+                  <button onClick={() => setCooperGender('female')} className={`flex-1 rounded-xl text-[10px] font-black transition-all ${cooperGender === 'female' ? 'bg-cyan-600 text-white shadow-md' : 'text-slate-500'}`}>FEMININO</button>
                 </div>
               </div>
             </div>
             {vo2Results && (
-              <div className="bg-slate-950 p-6 rounded-3xl border border-slate-800 text-center">
+              <div className="bg-slate-950 p-6 rounded-3xl border border-slate-800 text-center animate-in slide-in-from-top-2">
                  <p className="text-[10px] font-black text-slate-500 uppercase mb-2 tracking-widest">VO2 Máximo Estimado</p>
                  <div className="text-5xl font-black italic text-white mb-2">{vo2Results.value} <span className="text-xs text-slate-500">ml/kg/min</span></div>
-                 <div className={`text-sm font-black uppercase tracking-widest ${vo2Results.color}`}>Aptidão: {vo2Results.label}</div>
+                 <div className={`text-sm font-black uppercase tracking-widest ${vo2Results.color}`}>Nível: {vo2Results.label}</div>
               </div>
             )}
           </div>
