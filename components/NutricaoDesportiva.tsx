@@ -13,10 +13,10 @@ const FoodPyramid: React.FC = () => {
   return (
     <div className="glass-card p-10 rounded-[2.5rem] border-green-500/20">
        <h4 className="text-white font-black uppercase text-xl mb-8 flex items-center gap-3">
-         <Info className="text-green-500" /> Nova Pirâmide Alimentar Desportiva
+         <Info className="text-green-500" /> Pirâmide Alimentar Desportiva
        </h4>
        <div className="space-y-4">
-          {levels.reverse().map((level, i) => (
+          {levels.slice().reverse().map((level, i) => (
             <div key={i} className="flex flex-col md:flex-row gap-6 p-6 bg-slate-900/50 border border-slate-800 rounded-3xl hover:border-green-500/30 transition-all">
                <div className={`w-12 h-12 ${level.color} rounded-2xl flex items-center justify-center text-white font-black`}>
                   {4-i}

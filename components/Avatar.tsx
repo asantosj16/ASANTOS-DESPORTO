@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
-import { ShieldCheck, Footprints, User } from 'lucide-react';
+import React, { useState } from 'react';
+import { ShieldCheck, User } from 'lucide-react';
 
 interface AvatarProps {
   size?: 'sm' | 'md' | 'lg' | 'xl';
@@ -12,8 +12,8 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  // Caminho da imagem (ajustado para a raiz do servidor de desenvolvimento)
-  const avatarUrl = "images/Perfil.jpg"; 
+  // Caminho absoluto para a pasta public em produção
+  const avatarUrl = "/images/Perfil.jpg"; 
 
   const sizeClasses = {
     sm: 'w-10 h-10',
@@ -34,16 +34,15 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
       onClick={onClick}
       className={`relative rounded-full flex items-center justify-center bg-slate-900 border-2 border-slate-700/50 shadow-2xl transition-all duration-500 hover:scale-105 active:scale-95 group ${sizeClasses[size]} ${className} ${onClick ? 'cursor-pointer' : ''}`}
     >
-      {/* Efeito de brilho de fundo */}
-      <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/20 to-sky-400/20 rounded-full blur-md opacity-100"></div>
+      <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/30 to-sky-400/30 rounded-full blur-md opacity-100 group-hover:opacity-50 transition-opacity"></div>
 
       <div className="relative w-full h-full rounded-full overflow-hidden bg-slate-800 flex items-center justify-center">
         {!error ? (
           <>
             <img
               src={avatarUrl}
-              alt="Perfil"
-              className={`w-full h-full object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+              alt="Avatar do Professor"
+              className={`w-full h-full object-cover transition-all duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
               onLoad={() => setLoaded(true)}
               onError={() => setError(true)}
             />
@@ -56,7 +55,6 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
         ) : (
           <div className="flex flex-col items-center justify-center text-slate-500 bg-slate-900 w-full h-full">
             <User size={iconSizes[size] * 0.6} strokeWidth={1.5} className="opacity-40" />
-            <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent"></div>
           </div>
         )}
       </div>
@@ -66,9 +64,6 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
            <ShieldCheck size={14} fill="currentColor" />
         </div>
       )}
-
-      {/* Camada de brilho superior */}
-      <div className="absolute inset-0 rounded-full ring-1 ring-inset ring-white/5 pointer-events-none z-10"></div>
     </div>
   );
 };
