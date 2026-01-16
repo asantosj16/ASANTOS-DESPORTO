@@ -1,0 +1,8 @@
+{
+  "name": "ASANTOS DESPORTO",
+  "description": "Uma plataforma de alto desempenho para profissionais de Educação Física, abrangendo áreas escolar, corrida, musculação, natação e gestão de projetos.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
