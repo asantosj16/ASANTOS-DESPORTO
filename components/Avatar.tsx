@@ -12,8 +12,8 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  // Caminho local após a importação para o diretório de ativos estáticos
-  const avatarUrl = "/public/images/avatar.jpg"; 
+  // Caminho atualizado para Perfil.jpg conforme solicitado
+  const avatarUrl = "/public/images/Perfil.jpg"; 
 
   const sizeClasses = {
     sm: 'w-10 h-10',

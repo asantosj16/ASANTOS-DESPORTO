@@ -13,7 +13,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentSection, setSection }) => {
   const navItems = [
     { id: AppSection.HOME, label: 'Início', icon: Home },
     { id: AppSection.ESCOLAR, label: 'Escolar', icon: School },
-    { id: AppSection.MUSCULACAO, label: 'Treino', icon: Dumbbell },
+    { id: AppSection.MUSCULACAO, label: 'Musculação', icon: Dumbbell },
     { id: AppSection.NATACAO, label: 'Natação', icon: Waves },
     { id: AppSection.CORRIDA, label: 'Corrida', icon: Footprints },
     { id: AppSection.NUTRICAO, label: 'Nutrição', icon: Activity },

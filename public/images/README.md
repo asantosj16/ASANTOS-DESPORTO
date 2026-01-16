@@ -4,7 +4,7 @@
 Esta pasta (`/public/images/`) é o local centralizado para armazenar todos os ativos visuais estáticos da plataforma.
 
 ### Arquivos Atuais:
-- `avatar.jpg`: Foto de perfil oficial do profissional Anderson Santos.
+- `Perfil.jpg`: Foto de perfil oficial do profissional Anderson Santos (Substituiu avatar.jpg).
 
 ### Estrutura Sugerida:
 - `/avatars`: Fotos de perfil e avatares de usuários.
@@ -17,12 +17,12 @@ Esta pasta (`/public/images/`) é o local centralizado para armazenar todos os a
 #### Em Componentes React:
 ```tsx
 // O caminho deve começar com /public/images/
-<img src="/public/images/avatar.jpg" alt="Descrição" />
+<img src="/public/images/Perfil.jpg" alt="Anderson Santos" />
 ```
 
 #### Em Arquivos CSS/Tailwind (no index.html):
 ```css
 .minha-classe {
-  background-image: url('/public/images/avatar.jpg');
+  background-image: url('/public/images/Perfil.jpg');
 }
 ```
