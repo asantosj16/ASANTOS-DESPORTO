@@ -730,6 +730,12 @@ const TreinoPorMusculacao: React.FC = () => {
     }
   };
 
+  const getStaggerClass = (idx: number) => {
+    const stagger = (idx % 3) + 1;
+    const staggerClasses = ['stagger-1', 'stagger-2', 'stagger-3'];
+    return staggerClasses[stagger - 1];
+  };
+
   return (
     <div className="space-y-6">
       {/* Periodização Section */}
@@ -813,7 +819,7 @@ const TreinoPorMusculacao: React.FC = () => {
             {currentGroup.exercises.map((exercise, idx) => (
               <div
                 key={idx}
-                className={`group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer animate-fade-in-up stagger-${(idx % 3) + 1} opacity-0`}
+                className={`group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer animate-fade-in-up ${getStaggerClass(idx)} opacity-0`}
                 style={{ animationFillMode: 'forwards' }}
                 onClick={() => setSelectedExercise(exercise)}
               >
