@@ -4,6 +4,7 @@ export enum AppSection {
   ESCOLAR = 'escolar',
   MUSCULACAO = 'musculacao',
   CORRIDA = 'corrida',
+  TRIATHLON = 'triathlon',
   NATACAO = 'natacao',
   DOCUMENTOS = 'documentos',
   NUTRICAO = 'nutricao',

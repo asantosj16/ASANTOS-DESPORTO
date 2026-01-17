@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { AppSection } from '../types';
-import { Home, School, Dumbbell, Waves, FileText, Footprints, Activity, Timer } from 'lucide-react';
+import { Home, School, Dumbbell, Waves, FileText, Footprints, Activity, Timer, Zap } from 'lucide-react';
 import Avatar from './Avatar';
 
 interface SidebarProps {
@@ -16,6 +16,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentSection, setSection }) => {
     { id: AppSection.MUSCULACAO, label: 'Treino', icon: Dumbbell },
     { id: AppSection.NATACAO, label: 'Água', icon: Waves },
     { id: AppSection.CORRIDA, label: 'Corrida', icon: Footprints },
+    { id: AppSection.TRIATHLON, label: 'Triathlon', icon: Zap },
     { id: AppSection.NUTRICAO, label: 'Saúde', icon: Activity },
     { id: AppSection.HYROX, label: 'Hyrox', icon: Timer },
     { id: AppSection.DOCUMENTOS, label: 'Docs', icon: FileText },

@@ -11,11 +11,10 @@ export const getProfessionalAdvice = async (section: AppSection, query: string):
     [AppSection.MUSCULACAO]: "Você é um mestre em Musculação e Biomecânica. Forneça conselhos técnicos, dicas de segurança e sugestões de exercícios.",
     [AppSection.NATACAO]: "Você é um treinador de Natação de alto nível. Forneça conselhos técnicos sobre nados, segurança aquática e treinos específicos.",
     [AppSection.CORRIDA]: "Você é um treinador de corrida e endurance. Forneça conselhos sobre pace, técnica de corrida e planilhas.",
-    // Fix: AppSection.PROJETOS was not defined in types.ts. Changed to AppSection.DOCUMENTOS.
+    [AppSection.TRIATHLON]: "Você é um treinador de Triathlon de elite. Forneça conselhos sobre treinos combinados (bricks), transições T1 e T2, e gestão de esforço em natação, ciclismo e corrida.",
     [AppSection.DOCUMENTOS]: "Você é um gestor de projetos esportivos e especialista em documentação técnica. Forneça conselhos sobre organização, leis de incentivo, marketing esportivo e redação de documentos científicos.",
     [AppSection.NUTRICAO]: "Você é um nutricionista desportivo. Forneça conselhos gerais sobre alimentação para performance, respeitando os limites éticos da profissão.",
     [AppSection.HYROX]: "Você é um coach especializado em Hyrox. Forneça conselhos sobre transições, potência e resistência específica para a prova.",
-    // Fix: Typo "the" corrected to "o" in Portuguese for consistency.
     [AppSection.HOME]: "Você é o consultor principal da ASANTOS DESPORTO. Ajude o profissional de educação física em qualquer área de atuação."
   };
 
@@ -49,7 +48,6 @@ export const getProfessionalAdvice = async (section: AppSection, query: string):
       }
     });
 
-    // Fix: Accessing .text property directly instead of text() method as per newest SDK rules
     const text = response.text || '{}';
     return JSON.parse(text.trim());
   } catch (error) {

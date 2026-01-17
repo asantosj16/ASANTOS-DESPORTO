@@ -6,6 +6,7 @@ import AICoach from './components/AICoach';
 import ExerciseTable from './components/ExerciseTable';
 import AnnualPeriodization from './components/AnnualPeriodization';
 import RunningSection from './components/RunningSection';
+import Triathlon from './components/Triathlon';
 import Hyrox from './components/Hyrox';
 import Calisthenics from './components/Calisthenics';
 import Biometry from './components/Biometry';
@@ -20,7 +21,7 @@ import NutricaoDesportiva from './components/NutricaoDesportiva';
 import SectionWrapper from './components/SectionWrapper';
 import HIITProtocols from './components/HIITProtocols';
 import ScientificDocuments from './components/ScientificDocuments';
-import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer } from 'lucide-react';
+import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
   const [currentSection, setCurrentSection] = useState<AppSection>(AppSection.HOME);
@@ -49,6 +50,7 @@ const App: React.FC = () => {
                 { id: AppSection.ESCOLAR, title: 'Educação Física Escolar', icon: GraduationCap, color: 'bg-blue-600', desc: 'BNCC, Planos e Pedagogia' },
                 { id: AppSection.MUSCULACAO, title: 'Musculação', icon: Dumbbell, color: 'bg-slate-700', desc: 'Periodização e Biomecânica' },
                 { id: AppSection.NATACAO, title: 'Natação', icon: Waves, color: 'bg-sky-500', desc: 'Técnica e Segurança Aquática' },
+                { id: AppSection.TRIATHLON, title: 'Triathlon Performance', icon: Zap, color: 'bg-yellow-500', desc: 'Swim, Bike & Run Combined' },
                 { id: AppSection.HYROX, title: 'Hyrox', icon: Timer, color: 'bg-purple-600', desc: 'Treino Híbrido de Alta Intensidade' },
                 { id: AppSection.CORRIDA, title: 'Performance em Corrida', icon: Footprints, color: 'bg-orange-600', desc: 'Pace e Planilhas de Endurance' },
                 { id: AppSection.NUTRICAO, title: 'Nutrição Desportiva', icon: Apple, color: 'bg-green-600', desc: 'Alimentação para Performance' },
@@ -101,6 +103,15 @@ const App: React.FC = () => {
             <AICoach section={AppSection.CORRIDA} />
             <div className="pt-2">
               <RunningSection />
+            </div>
+          </SectionWrapper>
+        );
+      case AppSection.TRIATHLON:
+        return (
+          <SectionWrapper icon={<Zap />} title="Triathlon" subtitle="Estratégia e Treino Combinado (Swim/Bike/Run)." colorClass="bg-yellow-500">
+            <AICoach section={AppSection.TRIATHLON} />
+            <div className="pt-2">
+              <Triathlon />
             </div>
           </SectionWrapper>
         );
