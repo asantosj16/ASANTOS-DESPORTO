@@ -63,7 +63,7 @@ const AICoach: React.FC<AICoachProps> = ({ section }) => {
             </div>
             
             {response.suggestedDrills && response.suggestedDrills.length > 0 && (
-              <div className="bg-green-50/50 dark:bg-green-900/20 p-3 md:p-4 rounded-xl md:rounded-2xl border border-green-100 dark:border-blue-800">
+              <div className="bg-green-50/50 dark:bg-green-900/20 p-3 md:p-4 rounded-xl md:rounded-2xl border border-green-100 dark:border-green-800">
                 <h4 className="font-bold text-slate-900 dark:text-white mb-2 text-xs md:text-sm uppercase tracking-wider">Prática Sugerida:</h4>
                 <ul className="list-disc list-inside text-[11px] md:text-sm text-slate-700 dark:text-slate-300 space-y-1">
                   {response.suggestedDrills.map((drill, idx) => <li key={idx}>{drill}</li>)}
