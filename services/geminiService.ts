@@ -4,7 +4,7 @@ import { AppSection, AICoachResponse } from '../types';
 
 export const getProfessionalAdvice = async (section: AppSection, query: string): Promise<AICoachResponse> => {
   // Use import.meta.env for Vite environment variables
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  const apiKey = (import.meta as any).env?.VITE_GEMINI_API_KEY;
   
   if (!apiKey) {
     console.error("API Key não configurada");

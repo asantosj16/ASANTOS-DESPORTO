@@ -3,7 +3,7 @@ import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Exercise } from '../types';
 import { 
   Dumbbell, PlayCircle, Filter, Search, CheckCircle2, 
-  Info, X, AlertTriangle, Zap, Activity, Loader2, Image as ImageIcon
+  Info, X, AlertTriangle, Zap, Activity, Loader2, Image as ImageIcon, ExternalLink
 } from 'lucide-react';
 
 const EXERCISES: Exercise[] = [
