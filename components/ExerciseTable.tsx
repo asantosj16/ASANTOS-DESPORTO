@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Exercise } from '../types';
 import { 
   Dumbbell, PlayCircle, Filter, Search, CheckCircle2, 
@@ -8,8 +8,23 @@ import {
 
 const EXERCISES: Exercise[] = [
   // PEITORAL
-  { id: '1', name: 'Supino Reto', targetMuscle: 'Peitoral', instructions: 'Deite-se no banco, segure a barra e empurre-a verticalmente.', detailedDescription: 'Mantenha os pés firmes no chão, escápulas aduzidas e desça a barra até o peito.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
-  { id: '2', name: 'Supino Inclinado', targetMuscle: 'Peitoral', instructions: 'Banco a 45º, empurre os halteres para cima.', detailedDescription: 'Foco na porção superior do peitoral.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
+  { 
+    id: '1', 
+    name: 'Supino Reto com Halteres', 
+    targetMuscle: 'Peitoral', 
+    instructions: 'Deite-se no banco plano, segure um halter em cada mão com as palmas voltadas para a frente e empurre-os verticalmente até a extensão dos braços.', 
+    detailedDescription: 'Mantenha as escápulas aduzidas (fechadas) contra o banco. Desça os halteres de forma controlada até que fiquem alinhados com o peito, mantendo os cotovelos em um ângulo aproximado de 45 graus em relação ao tronco para proteger os ombros.', 
+    videoUrl: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaG54cXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lS27zPXP682888/giphy.gif' 
+  },
+  { 
+    id: '1-b', 
+    name: 'Supino Fechado (Barra)', 
+    targetMuscle: 'Peitoral / Tríceps', 
+    instructions: 'Deite-se no banco e segure a barra com as mãos em uma largura menor que a dos ombros. Desça a barra até o peito mantendo os cotovelos próximos ao corpo.', 
+    detailedDescription: 'Foco intenso no tríceps e na porção medial do peitoral. O uso do arquivo MP4 garante visualização fluida do movimento técnico de compressão.', 
+    videoUrl: 'exercise-close-grip-bench-press.mp4' 
+  },
+  { id: '2', name: 'Supino Inclinado', targetMuscle: 'Peitoral', instructions: 'Banco a 45º, empurre os halteres para cima.', detailedDescription: 'Foco na porção superior do peitoral.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
   { id: '3', name: 'Peck Deck', targetMuscle: 'Peitoral', instructions: 'Feche os braços à frente do corpo.', detailedDescription: 'Mantenha o peito estufado.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
   
   // DORSAIS
@@ -27,11 +42,14 @@ const EXERCISES: Exercise[] = [
 const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ exercise, onClose }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     setLoading(true);
     setError(false);
   }, [exercise.id]);
+
+  const isMp4 = exercise.videoUrl.toLowerCase().endsWith('.mp4');
 
   return (
     <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 md:p-8">
@@ -73,7 +91,7 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
                 {error ? (
                   <div className="flex flex-col items-center gap-4 text-slate-500 p-8 text-center">
                     <AlertTriangle size={48} className="text-amber-500 mb-2" />
-                    <p className="text-sm font-bold uppercase tracking-tight">Erro no servidor de imagens</p>
+                    <p className="text-sm font-bold uppercase tracking-tight">Erro no servidor de mídia</p>
                     <button 
                       onClick={() => { setError(false); setLoading(true); }}
                       className="mt-4 px-4 py-2 bg-slate-800 rounded-xl text-[10px] font-black uppercase hover:bg-slate-700 transition-colors"
@@ -82,14 +100,28 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
                     </button>
                   </div>
                 ) : (
-                  <img 
-                    src={exercise.videoUrl} 
-                    alt={exercise.name}
-                    onLoad={() => setLoading(false)}
-                    onError={() => { setLoading(false); setError(true); }}
-                    referrerPolicy="no-referrer"
-                    className={`w-full h-full object-cover transition-opacity duration-700 ${loading ? 'opacity-0' : 'opacity-100'}`}
-                  />
+                  isMp4 ? (
+                    <video 
+                      ref={videoRef}
+                      src={exercise.videoUrl} 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                      onCanPlay={() => setLoading(false)}
+                      onError={() => { setLoading(false); setError(true); }}
+                      className={`w-full h-full object-cover transition-opacity duration-700 ${loading ? 'opacity-0' : 'opacity-100'}`}
+                    />
+                  ) : (
+                    <img 
+                      src={exercise.videoUrl} 
+                      alt={exercise.name}
+                      onLoad={() => setLoading(false)}
+                      onError={() => { setLoading(false); setError(true); }}
+                      referrerPolicy="no-referrer"
+                      className={`w-full h-full object-cover transition-opacity duration-700 ${loading ? 'opacity-0' : 'opacity-100'}`}
+                    />
+                  )
                 )}
               </div>
               <div className="flex items-center gap-3 p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
@@ -133,7 +165,7 @@ const ExerciseTable: React.FC = () => {
 
   const filteredExercises = useMemo(() => {
     return EXERCISES.filter(ex => {
-      const matchMuscle = filterMuscle === 'Todos' || ex.targetMuscle === filterMuscle;
+      const matchMuscle = filterMuscle === 'Todos' || ex.targetMuscle.includes(filterMuscle);
       const matchSearch = ex.name.toLowerCase().includes(searchTerm.toLowerCase());
       return matchMuscle && matchSearch;
     });
@@ -214,7 +246,7 @@ const ExerciseTable: React.FC = () => {
                 <td className="px-8 py-5 text-right">
                   <div className="flex items-center justify-end gap-2 text-blue-500 group-hover:scale-110 transition-transform">
                     <PlayCircle size={18} />
-                    <span className="text-[10px] font-black uppercase tracking-widest hidden md:inline">Ver GIF</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest hidden md:inline">Ver {exercise.videoUrl.endsWith('.mp4') ? 'Vídeo' : 'GIF'}</span>
                   </div>
                 </td>
               </tr>

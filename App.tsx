@@ -148,9 +148,9 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-darkBg text-white pb-20 md:pb-0">
+    <div className="flex flex-col md:flex-row min-h-screen bg-darkBg text-white pb-24 md:pb-0">
       <Sidebar currentSection={currentSection} setSection={setCurrentSection} />
-      <main className="flex-1 p-3 md:p-8 lg:p-12 overflow-y-auto">
+      <main className="flex-1 p-3 pt-20 md:p-8 lg:p-12 overflow-y-auto">
         {renderContent()}
       </main>
     </div>
