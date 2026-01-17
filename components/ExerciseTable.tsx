@@ -207,14 +207,21 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
               </section>
 
               {exercise.tutorialUrl && (
-                <a 
-                  href={exercise.tutorialUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-4 bg-slate-900 text-white rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-md border border-slate-800 hover:border-blue-500"
-                >
-                  <PlayCircle size={18} /> Tutorial Técnico no YouTube <ExternalLink size={14} />
-                </a>
+                <section className="space-y-3">
+                  <h3 className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em] flex items-center gap-2">
+                    <PlayCircle size={16} /> Tutorial em Vídeo
+                  </h3>
+                  <a 
+                    href={exercise.tutorialUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl text-[11px] font-black uppercase tracking-widest hover:from-blue-500 hover:to-indigo-500 transition-all shadow-lg hover:shadow-blue-500/50 border border-blue-500/20"
+                  >
+                    <PlayCircle size={18} className="animate-pulse" /> 
+                    <span>Ver Tutorial no YouTube</span>
+                    <ExternalLink size={14} />
+                  </a>
+                </section>
               )}
             </div>
           </div>
