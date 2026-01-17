@@ -14,7 +14,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Deite-se no banco, segure a barra ou halteres e empurre verticalmente até a extensão dos braços.', 
     detailedDescription: 'Mantenha as escápulas aduzidas contra o banco. Desça de forma controlada até que a carga chegue próxima ao peito, mantendo o arco natural da lombar.', 
-    videoUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=supino+reto+tecnica+correta' 
   },
   { 
     id: '1-b', 
@@ -22,7 +23,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral / Tríceps', 
     instructions: 'Segure a barra com as mãos em uma largura menor que a dos ombros e desça mantendo os cotovelos próximos ao corpo.', 
     detailedDescription: 'Excelente para o desenvolvimento da porção interna do peitoral e foco intenso no tríceps braquial.', 
-    videoUrl: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=supino+fechado+tecnica' 
   },
   { 
     id: '2', 
@@ -30,7 +32,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Banco a 45º, empurre os halteres para cima mantendo o alinhamento com a parte superior do peito.', 
     detailedDescription: 'Foco na porção clavicular do peitoral. O uso de halteres permite maior amplitude de movimento e estabilização muscular.', 
-    videoUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=supino+inclinado+halteres+tutorial' 
   },
   { 
     id: '3', 
@@ -38,7 +41,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Sente-se na máquina e feche os braços à frente do corpo com um movimento semicircular.', 
     detailedDescription: 'Mantenha os cotovelos ligeiramente fletidos e foque na contração máxima do peitoral no centro do movimento.', 
-    videoUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=peck+deck+voador+execucao' 
   },
   
   // DORSAIS
@@ -48,7 +52,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Dorsais', 
     instructions: 'Incline o tronco à frente, coluna reta, e puxe a barra em direção ao umbigo.', 
     detailedDescription: 'Puxe com os cotovelos, focando na retração das escápulas. Mantenha os joelhos levemente fletidos para estabilidade.', 
-    videoUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=remada+curvada+tecnica' 
   },
   { 
     id: '7', 
@@ -56,7 +61,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Dorsais', 
     instructions: 'Puxe a barra em direção à parte superior do peito, mantendo o tronco levemente inclinado para trás.', 
     detailedDescription: 'Foque em "puxar com os cotovelos" para baixo. Evite usar excesso de balanço do tronco.', 
-    videoUrl: 'https://images.unsplash.com/photo-1605296867424-35fc25c9212a?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1605296867424-35fc25c9212a?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=puxada+alta+frente+tutorial' 
   },
 
   // PERNAS
@@ -66,7 +72,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Pernas', 
     instructions: 'Com a barra nas costas, desça o quadril mantendo os calcanhares no chão e a coluna neutra.', 
     detailedDescription: 'Inicie o movimento pelo quadril (sentar). Os joelhos devem seguir a linha das pontas dos pés.', 
-    videoUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=agachamento+livre+tecnica+correta' 
   },
   { 
     id: '12', 
@@ -74,7 +81,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Pernas', 
     instructions: 'Posicione os pés na plataforma e empurre, evitando o bloqueio total dos joelhos no topo.', 
     detailedDescription: 'Mantenha o quadril sempre apoiado no banco. Não permita que o calcanhar saia da plataforma na fase de descida.', 
-    videoUrl: 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=leg+press+45+graus+execucao' 
   },
 
   // OMBROS
@@ -84,7 +92,8 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Ombros', 
     instructions: 'Sente-se na máquina e empurre as pegas para cima de forma controlada.', 
     detailedDescription: 'Foco no deltóide anterior e lateral. Mantenha as costas bem apoiadas no encosto durante todo o movimento.', 
-    videoUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200&auto=format&fit=crop' 
+    videoUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200&auto=format&fit=crop',
+    tutorialUrl: 'https://www.youtube.com/results?search_query=desenvolvimento+maquina+ombros' 
   },
 ];
 
@@ -196,6 +205,17 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
                    {exercise.detailedDescription}
                  </div>
               </section>
+
+              {exercise.tutorialUrl && (
+                <a 
+                  href={exercise.tutorialUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-4 bg-slate-900 text-white rounded-2xl text-[11px] font-black uppercase tracking-widest hover:bg-blue-600 transition-all shadow-md border border-slate-800 hover:border-blue-500"
+                >
+                  <PlayCircle size={18} /> Tutorial Técnico no YouTube <ExternalLink size={14} />
+                </a>
+              )}
             </div>
           </div>
         </div>

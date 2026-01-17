@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Droplets, Image as ImageIcon, ExternalLink, Info, LifeBuoy, HeartPulse } from 'lucide-react';
+import { Droplets, Image as ImageIcon, ExternalLink, Info, LifeBuoy, HeartPulse, PlayCircle } from 'lucide-react';
 
 interface AerobicExercise {
   name: string;
@@ -9,17 +9,18 @@ interface AerobicExercise {
   focus: string;
   intensity: 'Baixa' | 'Média' | 'Alta';
   imageUrl: string;
+  videoUrl: string;
 }
 
 const WATER_EXERCISES: AerobicExercise[] = [
-  { name: "Corrida Estacionária", category: "Cardio", instructions: "Correr sem sair do lugar, elevando joelhos a 90º.", focus: "Aquecimento sistémico", intensity: "Média", imageUrl: "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=400&h=300&fit=crop" },
-  { name: "Polichinelo Aquático", category: "Cardio", instructions: "Abrir e fechar pernas e braços em simultâneo.", focus: "Cardiovascular", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=300&fit=crop" },
-  { name: "Sessão de Bicicleta", category: "Localizada", instructions: "Apoiado no esparguete, pedalar em suspensão.", focus: "Abdómen e Pernas", intensity: "Média", imageUrl: "https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=400&h=300&fit=crop" },
-  { name: "Remada de Peito", category: "Membros Superiores", instructions: "Mãos em concha, empurrar água para os lados.", focus: "Peitoral e Dorsais", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=400&h=300&fit=crop" },
-  { name: "Salto Tesoura", category: "Pliometria", instructions: "Alternar pernas em tesoura com salto explosivo.", focus: "Potência de membros inferiores", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=400&h=300&fit=crop" },
-  { name: "Twist de Cintura", category: "Core", instructions: "Rotação de anca com pés fixos ou em salto.", focus: "Oblíquos", intensity: "Média", imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" },
-  { name: "Impulsão Vertical", category: "Cardio", instructions: "Salto vertical saindo totalmente da água.", focus: "Explosão muscular", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=300&fit=crop" },
-  { name: "Braços em Cruz", category: "Membros Superiores", instructions: "Movimento circular com braços estendidos.", focus: "Mobilidade e força de ombros", intensity: "Baixa", imageUrl: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=400&h=300&fit=crop" }
+  { name: "Corrida Estacionária", category: "Cardio", instructions: "Correr sem sair do lugar, elevando joelhos a 90º.", focus: "Aquecimento sistémico", intensity: "Média", imageUrl: "https://images.unsplash.com/photo-1576610616656-d3aa5d1f4534?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+corrida+estacionaria" },
+  { name: "Polichinelo Aquático", category: "Cardio", instructions: "Abrir e fechar pernas e braços em simultâneo.", focus: "Cardiovascular", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+polichinelo+aquatico" },
+  { name: "Sessão de Bicicleta", category: "Localizada", instructions: "Apoiado no esparguete, pedalar em suspensão.", focus: "Abdómen e Pernas", intensity: "Média", imageUrl: "https://images.unsplash.com/photo-1519505907962-0a6cb0167c73?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+bicicleta+esparguete" },
+  { name: "Remada de Peito", category: "Membros Superiores", instructions: "Mãos em concha, empurrar água para os lados.", focus: "Peitoral e Dorsais", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1600965962102-9d260a71890d?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+remada+peito" },
+  { name: "Salto Tesoura", category: "Pliometria", instructions: "Alternar pernas em tesoura com salto explosivo.", focus: "Potência de membros inferiores", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+salto+tesoura" },
+  { name: "Twist de Cintura", category: "Core", instructions: "Rotação de anca com pés fixos ou em salto.", focus: "Oblíquos", intensity: "Média", imageUrl: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+twist+rotacao" },
+  { name: "Impulsão Vertical", category: "Cardio", instructions: "Salto vertical saindo totalmente da água.", focus: "Explosão muscular", intensity: "Alta", imageUrl: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+impulsao+vertical" },
+  { name: "Braços em Cruz", category: "Membros Superiores", instructions: "Movimento circular com braços estendidos.", focus: "Mobilidade e força de ombros", intensity: "Baixa", imageUrl: "https://images.unsplash.com/photo-1560089000-7433a4ebbd64?w=400&h=300&fit=crop", videoUrl: "https://www.youtube.com/results?search_query=hidroginastica+bracos+cruz" }
 ];
 
 const WaterAerobics: React.FC = () => {
@@ -55,6 +56,14 @@ const WaterAerobics: React.FC = () => {
                <span className="text-[9px] font-black text-cyan-500 uppercase">{exercise.intensity}</span>
                <ImageIcon size={16} className="text-cyan-500 group-hover:text-cyan-400 transition-colors" />
             </div>
+            <a 
+              href={exercise.videoUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 w-full py-2.5 mt-4 bg-slate-900 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-cyan-600 transition-all"
+            >
+              <PlayCircle size={14} /> Tutorial Técnico <ExternalLink size={11} />
+            </a>
           </div>
         ))}
       </div>

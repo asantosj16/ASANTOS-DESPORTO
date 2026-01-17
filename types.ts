@@ -29,6 +29,7 @@ export interface Exercise {
   instructions: string;
   detailedDescription: string;
   videoUrl: string;
+  tutorialUrl?: string;
 }
 
 export interface RunningLog {
