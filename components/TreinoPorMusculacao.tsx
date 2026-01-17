@@ -813,7 +813,8 @@ const TreinoPorMusculacao: React.FC = () => {
             {currentGroup.exercises.map((exercise, idx) => (
               <div
                 key={idx}
-                className="group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer"
+                className={`group relative bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl transition-all duration-300 cursor-pointer animate-fade-in-up stagger-${(idx % 3) + 1} opacity-0`}
+                style={{ animationFillMode: 'forwards' }}
                 onClick={() => setSelectedExercise(exercise)}
               >
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"></div>
