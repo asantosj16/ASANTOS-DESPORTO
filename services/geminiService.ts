@@ -3,8 +3,19 @@ import { GoogleGenAI, Type } from '@google/genai';
 import { AppSection, AICoachResponse } from '../types';
 
 export const getProfessionalAdvice = async (section: AppSection, query: string): Promise<AICoachResponse> => {
-  // Fix: Use process.env.API_KEY directly as per SDK guidelines
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  // Use import.meta.env for Vite environment variables
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  
+  if (!apiKey) {
+    console.error("API Key não configurada");
+    return {
+      advice: "Configuração necessária: adicione VITE_GEMINI_API_KEY nas variáveis de ambiente.",
+      tips: ["Configure a API key do Gemini", "Reinicie o servidor de desenvolvimento"],
+      suggestedDrills: []
+    };
+  }
+  
+  const ai = new GoogleGenAI({ apiKey });
   
   const systemInstructions = {
     [AppSection.ESCOLAR]: "Você é um especialista em Educação Física Escolar focado na BNCC. Forneça conselhos pedagógicos, dicas de manejo de turma e sugestões de atividades.",
@@ -20,7 +31,7 @@ export const getProfessionalAdvice = async (section: AppSection, query: string):
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-2.0-flash-exp',
       contents: query,
       config: {
         systemInstruction: systemInstructions[section] || systemInstructions[AppSection.HOME],
