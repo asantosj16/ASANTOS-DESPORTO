@@ -14,7 +14,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Deite-se no banco, segure a barra ou halteres e empurre verticalmente até a extensão dos braços.', 
     detailedDescription: 'Mantenha as escápulas aduzidas contra o banco. Desça de forma controlada até que a carga chegue próxima ao peito, mantendo o arco natural da lombar.', 
-    videoUrl: 'https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200&auto=format&fit=crop' 
   },
   { 
     id: '1-b', 
@@ -22,7 +22,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral / Tríceps', 
     instructions: 'Segure a barra com as mãos em uma largura menor que a dos ombros e desça mantendo os cotovelos próximos ao corpo.', 
     detailedDescription: 'Excelente para o desenvolvimento da porção interna do peitoral e foco intenso no tríceps braquial.', 
-    videoUrl: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1532029837206-abbe2b7620e3?q=80&w=1200&auto=format&fit=crop' 
   },
   { 
     id: '2', 
@@ -30,7 +30,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Banco a 45º, empurre os halteres para cima mantendo o alinhamento com a parte superior do peito.', 
     detailedDescription: 'Foco na porção clavicular do peitoral. O uso de halteres permite maior amplitude de movimento e estabilização muscular.', 
-    videoUrl: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200&auto=format&fit=crop' 
   },
   { 
     id: '3', 
@@ -38,7 +38,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Sente-se na máquina e feche os braços à frente do corpo com um movimento semicircular.', 
     detailedDescription: 'Mantenha os cotovelos ligeiramente fletidos e foque na contração máxima do peitoral no centro do movimento.', 
-    videoUrl: 'https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/1080/Big_Buck_Bunny_1080_10s_1MB.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop' 
   },
   
   // DORSAIS
@@ -48,7 +48,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Dorsais', 
     instructions: 'Incline o tronco à frente, coluna reta, e puxe a barra em direção ao umbigo.', 
     detailedDescription: 'Puxe com os cotovelos, focando na retração das escápulas. Mantenha os joelhos levemente fletidos para estabilidade.', 
-    videoUrl: 'https://file-examples.com/storage/fe0c5b41a297f5a08633ebb/2017/04/file_example_MP4_480_1_5MG.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop' 
   },
   { 
     id: '7', 
@@ -56,7 +56,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Dorsais', 
     instructions: 'Puxe a barra em direção à parte superior do peito, mantendo o tronco levemente inclinado para trás.', 
     detailedDescription: 'Foque em "puxar com os cotovelos" para baixo. Evite usar excesso de balanço do tronco.', 
-    videoUrl: 'https://file-examples.com/storage/fe0c5b41a297f5a08633ebb/2017/04/file_example_MP4_640_3MG.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1605296867424-35fc25c9212a?q=80&w=1200&auto=format&fit=crop' 
   },
 
   // PERNAS
@@ -66,7 +66,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Pernas', 
     instructions: 'Com a barra nas costas, desça o quadril mantendo os calcanhares no chão e a coluna neutra.', 
     detailedDescription: 'Inicie o movimento pelo quadril (sentar). Os joelhos devem seguir a linha das pontas dos pés.', 
-    videoUrl: 'https://file-examples.com/storage/fe0c5b41a297f5a08633ebb/2017/04/file_example_MP4_1280_10MG.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop' 
   },
   { 
     id: '12', 
@@ -74,7 +74,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Pernas', 
     instructions: 'Posicione os pés na plataforma e empurre, evitando o bloqueio total dos joelhos no topo.', 
     detailedDescription: 'Mantenha o quadril sempre apoiado no banco. Não permita que o calcanhar saia da plataforma na fase de descida.', 
-    videoUrl: 'https://file-examples.com/storage/fe0c5b41a297f5a08633ebb/2017/04/file_example_MP4_1920_18MG.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1434682881908-b43d0467b798?q=80&w=1200&auto=format&fit=crop' 
   },
 
   // OMBROS
@@ -84,7 +84,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Ombros', 
     instructions: 'Sente-se na máquina e empurre as pegas para cima de forma controlada.', 
     detailedDescription: 'Foco no deltóide anterior e lateral. Mantenha as costas bem apoiadas no encosto durante todo o movimento.', 
-    videoUrl: 'https://download.blender.org/demo/movies/BBB/bbb_sunflower_1080p_30fps_normal.mp4' 
+    videoUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200&auto=format&fit=crop' 
   },
 ];
 
