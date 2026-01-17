@@ -41,6 +41,16 @@ export interface RunningLog {
   notes?: string;
 }
 
+export interface SwimmingLog {
+  id: string;
+  date: string;
+  distance: number;
+  durationMinutes: number;
+  style: 'Crawl' | 'Costas' | 'Bruços' | 'Mariposa' | 'Medley';
+  intensity: 'Z1' | 'Z2' | 'Z3' | 'Z4' | 'Z5';
+  notes?: string;
+}
+
 export interface TriathlonLog {
   id: string;
   date: string;

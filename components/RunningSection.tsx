@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { Timer, Footprints, Calculator, RefreshCw, Target, Clock, Wind, Plus, Trophy, Zap } from 'lucide-react';
+import { Timer, Footprints, Calculator, RefreshCw, Target, Clock, Wind, Plus, Trophy, Zap, ClipboardList, Trash2, Calendar, Activity } from 'lucide-react';
 import { RunningLog } from '../types';
 import RunningPeriodization from './RunningPeriodization';
 
@@ -24,9 +24,44 @@ const RunningSection: React.FC = () => {
     } catch { return []; }
   });
 
+  const [newLog, setNewLog] = useState<Partial<RunningLog>>({
+    sensation: 'Bem',
+    distance: 0,
+    durationSeconds: 0
+  });
+
   useEffect(() => {
     localStorage.setItem('asantos_running_logs_v1', JSON.stringify(logs));
   }, [logs]);
+
+  const handleAddLog = () => {
+    if (!newLog.distance || !newLog.durationSeconds) return;
+    
+    // Cálculo de Pace para o Log
+    const dist = Number(newLog.distance);
+    const secs = Number(newLog.durationSeconds);
+    const paceTotalSeconds = secs / dist;
+    const paceM = Math.floor(paceTotalSeconds / 60);
+    const paceS = Math.round(paceTotalSeconds % 60);
+    const paceStr = `${paceM}:${paceS.toString().padStart(2, '0')}`;
+
+    const log: RunningLog = {
+      id: crypto.randomUUID(),
+      date: new Date().toLocaleDateString('pt-PT'),
+      distance: dist,
+      durationSeconds: secs,
+      pace: paceStr,
+      sensation: newLog.sensation as any,
+      notes: newLog.notes
+    };
+
+    setLogs([log, ...logs]);
+    setNewLog({ ...newLog, distance: 0, durationSeconds: 0, notes: '' });
+  };
+
+  const removeLog = (id: string) => {
+    setLogs(logs.filter(l => l.id !== id));
+  };
 
   // --- Lógica de Cálculo de Ritmo (Pace) ---
   const paceResults = useMemo(() => {
@@ -75,7 +110,136 @@ const RunningSection: React.FC = () => {
   }, [cooperDist, cooperGender]);
 
   return (
-    <div className="space-y-8 animate-fade-in-up">
+    <div className="space-y-12 animate-fade-in-up">
+      
+      {/* Diário de Treino de Corrida */}
+      <div className="glass-card rounded-[3rem] overflow-hidden border-white/5 shadow-2xl">
+        <div className="p-8 border-b border-slate-800 bg-slate-900/20 flex items-center gap-4">
+          <div className="bg-orange-600 p-2 rounded-xl text-white shadow-lg">
+            <Footprints size={22} />
+          </div>
+          <div>
+            <h3 className="text-xl font-black text-white uppercase tracking-tight">Diário de Corrida</h3>
+            <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Registo de Quilometragem e Performance</p>
+          </div>
+        </div>
+
+        <div className="p-8 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Form */}
+          <div className="lg:col-span-4 space-y-6">
+            <h4 className="text-xs font-black text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+              <Plus size={16} className="text-orange-500" /> Registar Corrida
+            </h4>
+            
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label className="text-[9px] font-black text-slate-500 uppercase">Distância (km)</label>
+                  <input 
+                    type="number" 
+                    value={newLog.distance || ''} 
+                    onChange={(e) => setNewLog({...newLog, distance: Number(e.target.value)})}
+                    placeholder="Ex: 10"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:ring-1 focus:ring-orange-500"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[9px] font-black text-slate-500 uppercase">Segundos Totais</label>
+                  <input 
+                    type="number" 
+                    value={newLog.durationSeconds || ''} 
+                    onChange={(e) => setNewLog({...newLog, durationSeconds: Number(e.target.value)})}
+                    placeholder="Ex: 3000"
+                    className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:ring-1 focus:ring-orange-500"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[9px] font-black text-slate-500 uppercase">Sensação</label>
+                <select 
+                  value={newLog.sensation} 
+                  onChange={(e) => setNewLog({...newLog, sensation: e.target.value as any})}
+                  className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs font-bold text-white outline-none focus:ring-1 focus:ring-orange-500"
+                >
+                  <option>Muito Cansado</option>
+                  <option>Cansado</option>
+                  <option>Bem</option>
+                  <option>Ótimo</option>
+                  <option>Invencível</option>
+                </select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-[9px] font-black text-slate-500 uppercase">Notas Rápidas</label>
+                <textarea 
+                  value={newLog.notes || ''} 
+                  onChange={(e) => setNewLog({...newLog, notes: e.target.value})}
+                  className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-xs font-medium text-slate-300 outline-none h-20"
+                />
+              </div>
+
+              <button 
+                onClick={handleAddLog}
+                className="w-full py-4 bg-white text-slate-950 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-orange-600 hover:text-white transition-all shadow-xl"
+              >
+                Salvar Registo
+              </button>
+            </div>
+          </div>
+
+          {/* List */}
+          <div className="lg:col-span-8 space-y-6">
+            <h4 className="text-xs font-black text-white uppercase tracking-widest mb-4 flex items-center gap-2">
+              <Calendar size={16} className="text-slate-500" /> Atividades Recentes
+            </h4>
+
+            {logs.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[500px] overflow-y-auto pr-2 no-scrollbar">
+                {logs.map((log) => (
+                  <div key={log.id} className="bg-slate-950/60 p-6 rounded-[2rem] border border-white/5 flex flex-col justify-between hover:border-orange-500/30 transition-all group">
+                    <div>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2">
+                          <Activity size={14} className="text-orange-500" />
+                          <span className="text-[10px] font-black text-white uppercase tracking-widest">{log.sensation}</span>
+                        </div>
+                        <span className="text-[9px] font-bold text-slate-600">{log.date}</span>
+                      </div>
+                      
+                      <div className="grid grid-cols-2 gap-4 mb-2">
+                        <div className="space-y-1">
+                          <span className="text-[8px] font-black text-slate-500 uppercase block">Distância</span>
+                          <span className="text-sm font-black text-white italic">{log.distance} <span className="text-[10px] not-italic opacity-50 uppercase">km</span></span>
+                        </div>
+                        <div className="space-y-1">
+                          <span className="text-[8px] font-black text-slate-500 uppercase block">Ritmo</span>
+                          <span className="text-sm font-black text-white italic">{log.pace} <span className="text-[10px] not-italic opacity-50 uppercase">min/km</span></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                      <span className="px-2 py-1 bg-slate-900 rounded text-[8px] font-black text-orange-400 uppercase tracking-widest">
+                        {Math.floor(log.durationSeconds / 60)} min
+                      </span>
+                      <button onClick={() => removeLog(log.id)} className="text-slate-700 hover:text-rose-500 transition-colors">
+                        <Trash2 size={14} />
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="h-64 flex flex-col items-center justify-center border-2 border-dashed border-slate-800 rounded-[3rem] text-slate-600 gap-4">
+                <ClipboardList size={32} />
+                <p className="text-xs font-black uppercase tracking-widest">Ainda sem registos de corrida</p>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
       {/* Calculadoras Principais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
@@ -104,7 +268,7 @@ const RunningSection: React.FC = () => {
                 onClick={() => setCalcUnit('mi')}
                 className={`px-4 py-2 rounded-xl text-[10px] font-black transition-all uppercase ${calcUnit === 'mi' ? 'bg-orange-600 text-white shadow-lg' : 'text-slate-500 hover:text-slate-300'}`}
               >
-                MILHAS
+                MI
               </button>
             </div>
           </div>
