@@ -14,7 +14,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Deite-se no banco, segure a barra ou halteres e empurre verticalmente até a extensão dos braços.', 
     detailedDescription: 'Mantenha as escápulas aduzidas contra o banco. Desça de forma controlada até que a carga chegue próxima ao peito, mantendo o arco natural da lombar.', 
-    videoUrl: 'images/SupinoReto.gif' 
+    videoUrl: 'images/SupinoReto.mp4' 
   },
   { 
     id: '1-b', 
@@ -30,7 +30,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Banco a 45º, empurre os halteres para cima mantendo o alinhamento com a parte superior do peito.', 
     detailedDescription: 'Foco na porção clavicular do peitoral. O uso de halteres permite maior amplitude de movimento e estabilização muscular.', 
-    videoUrl: 'images/SupinoInclinado.gif' 
+    videoUrl: 'images/SupinoInclinado.mp4' 
   },
   { 
     id: '3', 
@@ -38,7 +38,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Sente-se na máquina e feche os braços à frente do corpo com um movimento semicircular.', 
     detailedDescription: 'Mantenha os cotovelos ligeiramente fletidos e foque na contração máxima do peitoral no centro do movimento.', 
-    videoUrl: 'images/PeckDeck.gif' 
+    videoUrl: 'images/PeckDeck.mp4' 
   },
   
   // DORSAIS
@@ -48,7 +48,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Dorsais', 
     instructions: 'Incline o tronco à frente, coluna reta, e puxe a barra em direção ao umbigo.', 
     detailedDescription: 'Puxe com os cotovelos, focando na retração das escápulas. Mantenha os joelhos levemente fletidos para estabilidade.', 
-    videoUrl: 'images/RemadaCurvada.gif' 
+    videoUrl: 'images/RemadaCurvada.mp4' 
   },
   { 
     id: '7', 
@@ -98,7 +98,7 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
     setError(false);
   }, [exercise.id]);
 
-  const isMp4 = exercise.videoUrl.toLowerCase().endsWith('.mp4');
+  const isVideo = exercise.videoUrl.toLowerCase().endsWith('.mp4');
 
   return (
     <div className="fixed inset-0 z-[300] flex items-center justify-center p-4 md:p-8">
@@ -149,7 +149,7 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
                     </button>
                   </div>
                 ) : (
-                  isMp4 ? (
+                  isVideo ? (
                     <video 
                       ref={videoRef}
                       src={exercise.videoUrl} 

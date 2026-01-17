@@ -12,8 +12,8 @@ const Avatar: React.FC<AvatarProps> = ({ size = 'md', className = '', onClick })
   const [error, setError] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  // Caminho absoluto para garantir o carregamento em qualquer ambiente de build
-  const avatarUrl = "/images/Perfil.jpg"; 
+  // Caminho relativo para garantir portabilidade entre diferentes bases de URL
+  const avatarUrl = "images/Perfil.jpg"; 
 
   const sizeClasses = {
     sm: 'w-10 h-10',
