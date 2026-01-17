@@ -10,33 +10,82 @@ const EXERCISES: Exercise[] = [
   // PEITORAL
   { 
     id: '1', 
-    name: 'Supino Reto com Halteres', 
+    name: 'Supino Reto', 
     targetMuscle: 'Peitoral', 
-    instructions: 'Deite-se no banco plano, segure um halter em cada mão com as palmas voltadas para a frente e empurre-os verticalmente até a extensão dos braços.', 
-    detailedDescription: 'Mantenha as escápulas aduzidas (fechadas) contra o banco. Desça os halteres de forma controlada até que fiquem alinhados com o peito, mantendo os cotovelos em um ângulo aproximado de 45 graus em relação ao tronco para proteger os ombros.', 
-    videoUrl: 'images/exercise-close-grip-bench-press.mp4' 
+    instructions: 'Deite-se no banco, segure a barra ou halteres e empurre verticalmente até a extensão dos braços.', 
+    detailedDescription: 'Mantenha as escápulas aduzidas contra o banco. Desça de forma controlada até que a carga chegue próxima ao peito, mantendo o arco natural da lombar.', 
+    videoUrl: 'images/SupinoReto.gif' 
   },
   { 
     id: '1-b', 
     name: 'Supino Fechado (Barra)', 
     targetMuscle: 'Peitoral / Tríceps', 
-    instructions: 'Deite-se no banco e segure a barra com as mãos em uma largura menor que a dos ombros. Desça a barra até o peito mantendo os cotovelos próximos ao corpo.', 
-    detailedDescription: 'Foco intenso no tríceps e na porção medial do peitoral. O uso do arquivo MP4 garante visualização fluida do movimento técnico de compressão.', 
+    instructions: 'Segure a barra com as mãos em uma largura menor que a dos ombros e desça mantendo os cotovelos próximos ao corpo.', 
+    detailedDescription: 'Excelente para o desenvolvimento da porção interna do peitoral e foco intenso no tríceps braquial.', 
     videoUrl: 'images/exercise-close-grip-bench-press.mp4' 
   },
-  { id: '2', name: 'Supino Inclinado', targetMuscle: 'Peitoral', instructions: 'Banco a 45º, empurre os halteres para cima.', detailedDescription: 'Foco na porção superior do peitoral.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
-  { id: '3', name: 'Peck Deck', targetMuscle: 'Peitoral', instructions: 'Feche os braços à frente do corpo.', detailedDescription: 'Mantenha o peito estufado.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
+  { 
+    id: '2', 
+    name: 'Supino Inclinado com Halteres', 
+    targetMuscle: 'Peitoral', 
+    instructions: 'Banco a 45º, empurre os halteres para cima mantendo o alinhamento com a parte superior do peito.', 
+    detailedDescription: 'Foco na porção clavicular do peitoral. O uso de halteres permite maior amplitude de movimento e estabilização muscular.', 
+    videoUrl: 'images/SupinoInclinado.gif' 
+  },
+  { 
+    id: '3', 
+    name: 'Peck Deck (Voador)', 
+    targetMuscle: 'Peitoral', 
+    instructions: 'Sente-se na máquina e feche os braços à frente do corpo com um movimento semicircular.', 
+    detailedDescription: 'Mantenha os cotovelos ligeiramente fletidos e foque na contração máxima do peitoral no centro do movimento.', 
+    videoUrl: 'images/PeckDeck.gif' 
+  },
   
   // DORSAIS
-  { id: '6', name: 'Remada Curvada', targetMuscle: 'Dorsais', instructions: 'Puxe a barra ao abdômen inclinando o tronco.', detailedDescription: 'Coluna neutra sempre.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
-  { id: '7', name: 'Puxada Alta', targetMuscle: 'Dorsais', instructions: 'Puxe a barra ao peito.', detailedDescription: 'Cotovelos para baixo e para trás.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
+  { 
+    id: '6', 
+    name: 'Remada Curvada', 
+    targetMuscle: 'Dorsais', 
+    instructions: 'Incline o tronco à frente, coluna reta, e puxe a barra em direção ao umbigo.', 
+    detailedDescription: 'Puxe com os cotovelos, focando na retração das escápulas. Mantenha os joelhos levemente fletidos para estabilidade.', 
+    videoUrl: 'images/RemadaCurvada.gif' 
+  },
+  { 
+    id: '7', 
+    name: 'Puxada Alta (Lat Pulldown)', 
+    targetMuscle: 'Dorsais', 
+    instructions: 'Puxe a barra em direção à parte superior do peito, mantendo o tronco levemente inclinado para trás.', 
+    detailedDescription: 'Foque em "puxar com os cotovelos" para baixo. Evite usar excesso de balanço do tronco.', 
+    videoUrl: 'images/PuxadaAlta.gif' 
+  },
 
   // PERNAS
-  { id: '11', name: 'Agachamento Livre', targetMuscle: 'Pernas', instructions: 'Desça o quadril mantendo a coluna reta.', detailedDescription: 'Amplitude máxima permitida.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
-  { id: '12', name: 'Leg Press 45º', targetMuscle: 'Pernas', instructions: 'Empurre a plataforma com os pés.', detailedDescription: 'Não trave os joelhos.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
+  { 
+    id: '11', 
+    name: 'Agachamento Livre', 
+    targetMuscle: 'Pernas', 
+    instructions: 'Com a barra nas costas, desça o quadril mantendo os calcanhares no chão e a coluna neutra.', 
+    detailedDescription: 'Inicie o movimento pelo quadril (sentar). Os joelhos devem seguir a linha das pontas dos pés.', 
+    videoUrl: 'images/Agachamento.gif' 
+  },
+  { 
+    id: '12', 
+    name: 'Leg Press 45º', 
+    targetMuscle: 'Pernas', 
+    instructions: 'Posicione os pés na plataforma e empurre, evitando o bloqueio total dos joelhos no topo.', 
+    detailedDescription: 'Mantenha o quadril sempre apoiado no banco. Não permita que o calcanhar saia da plataforma na fase de descida.', 
+    videoUrl: 'images/LegPress.gif' 
+  },
 
   // OMBROS
-  { id: '18', name: 'Desenvolvimento', targetMuscle: 'Ombros', instructions: 'Halteres acima da cabeça.', detailedDescription: 'Controle o movimento.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
+  { 
+    id: '18', 
+    name: 'Desenvolvimento em Máquina', 
+    targetMuscle: 'Ombros', 
+    instructions: 'Sente-se na máquina e empurre as pegas para cima de forma controlada.', 
+    detailedDescription: 'Foco no deltóide anterior e lateral. Mantenha as costas bem apoiadas no encosto durante todo o movimento.', 
+    videoUrl: 'images/Desenvolvimento.gif' 
+  },
 ];
 
 const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ exercise, onClose }) => {
@@ -91,7 +140,7 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
                 {error ? (
                   <div className="flex flex-col items-center gap-4 text-slate-500 p-8 text-center">
                     <AlertTriangle size={48} className="text-amber-500 mb-2" />
-                    <p className="text-sm font-bold uppercase tracking-tight">Erro no servidor de mídia</p>
+                    <p className="text-sm font-bold uppercase tracking-tight">Erro ao carregar demonstração</p>
                     <button 
                       onClick={() => { setError(false); setLoading(true); }}
                       className="mt-4 px-4 py-2 bg-slate-800 rounded-xl text-[10px] font-black uppercase hover:bg-slate-700 transition-colors"
@@ -118,7 +167,6 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
                       alt={exercise.name}
                       onLoad={() => setLoading(false)}
                       onError={() => { setLoading(false); setError(true); }}
-                      referrerPolicy="no-referrer"
                       className={`w-full h-full object-cover transition-opacity duration-700 ${loading ? 'opacity-0' : 'opacity-100'}`}
                     />
                   )
@@ -126,14 +174,14 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
               </div>
               <div className="flex items-center gap-3 p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
                  <Activity size={18} className="text-blue-500" />
-                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Feed Visual em HD</span>
+                 <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Demonstração Visual HD</span>
               </div>
             </div>
 
             <div className="space-y-8">
               <section className="space-y-4">
                  <h3 className="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em] flex items-center gap-2">
-                   <Info size={16} /> Instruções de Treino
+                   <Info size={16} /> Instruções de Execução
                  </h3>
                  <p className="text-slate-300 leading-relaxed font-medium">
                    {exercise.instructions}
@@ -142,7 +190,7 @@ const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ 
 
               <section className="space-y-4">
                  <h3 className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] flex items-center gap-2">
-                   <CheckCircle2 size={16} className="text-emerald-500" /> Notas Técnicas
+                   <CheckCircle2 size={16} className="text-emerald-500" /> Notas de Biomecânica
                  </h3>
                  <div className="p-6 bg-slate-950/50 rounded-3xl border border-slate-800/50 italic text-slate-400 text-sm leading-relaxed">
                    {exercise.detailedDescription}
@@ -187,8 +235,8 @@ const ExerciseTable: React.FC = () => {
               <Dumbbell size={24} />
             </div>
             <div>
-              <h3 className="text-2xl font-black text-white uppercase tracking-tight">Guia Visual</h3>
-              <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Demonstrações Animadas HD</p>
+              <h3 className="text-2xl font-black text-white uppercase tracking-tight">Guia de Exercícios</h3>
+              <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em]">Biomecânica e Técnica em HD</p>
             </div>
           </div>
           
@@ -246,7 +294,7 @@ const ExerciseTable: React.FC = () => {
                 <td className="px-8 py-5 text-right">
                   <div className="flex items-center justify-end gap-2 text-blue-500 group-hover:scale-110 transition-transform">
                     <PlayCircle size={18} />
-                    <span className="text-[10px] font-black uppercase tracking-widest hidden md:inline">Ver {exercise.videoUrl.endsWith('.mp4') ? 'Vídeo' : 'GIF'}</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest hidden md:inline">Ver Demonstração</span>
                   </div>
                 </td>
               </tr>

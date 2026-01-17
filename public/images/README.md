@@ -1,27 +1,20 @@
 
-# Imagens Públicas - ASANTOS DESPORTO
+# Imagens e Vídeos - ASANTOS DESPORTO
 
-Esta pasta (`/public/images/`) é servida na raiz do servidor.
+Todos os arquivos listados abaixo devem estar localizados em `/public/images/` para garantir o funcionamento do Guia Visual.
 
-### Arquivos Atuais:
-- `Perfil.jpg`: Foto de perfil oficial (Anderson Santos).
-- `SupinoHalteres.gif`: Demonstração técnica do Supino Reto com Halteres.
-- `exercise-close-grip-bench-press.mp4`: Vídeo técnico do Supino Fechado.
+### Lista de Arquivos Obrigatórios:
+- `Perfil.jpg`: Foto de perfil profissional.
+- `SupinoReto.gif`: Barra/Halteres no banco plano.
+- `SupinoInclinado.gif`: Halteres no banco a 45º.
+- `PeckDeck.gif`: Máquina voadora peitoral.
+- `RemadaCurvada.gif`: Barra curvada para dorsais.
+- `PuxadaAlta.gif`: Pulley/Puxador alto para dorsais.
+- `Agachamento.gif`: Barra nas costas, agachamento livre.
+- `LegPress.gif`: Prensa de pernas a 45º.
+- `Desenvolvimento.gif`: Press de ombros em máquina.
+- `exercise-close-grip-bench-press.mp4`: Vídeo do Supino Fechado.
 
-### Como Referenciar Corretamente:
-
-Para que as imagens funcionem tanto em desenvolvimento quanto após o build, **não** inclua o prefixo `/public/`.
-
-#### Correto (React):
-```tsx
-// O navegador resolverá para a pasta public automaticamente
-<img src="images/Perfil.jpg" alt="Anderson Santos" />
-```
-
-#### Incorreto (React):
-```tsx
-// Isso falhará na maioria dos ambientes de produção
-<img src="/public/images/Perfil.jpg" alt="..." />
-```
-
-> **Nota:** Certifique-se de que o arquivo físico `SupinoHalteres.gif` existe exatamente com este nome (incluindo a capitalização) dentro desta pasta para que o componente ExerciseTable consiga carregá-lo.
+### Recomendações:
+- Os GIFs devem ser otimizados para web para garantir carregamento rápido.
+- Manter o padrão de nomenclatura "PascalCase" para GIFs e "kebab-case" para vídeos, conforme configurado no código.
