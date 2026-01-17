@@ -14,7 +14,7 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral', 
     instructions: 'Deite-se no banco plano, segure um halter em cada mão com as palmas voltadas para a frente e empurre-os verticalmente até a extensão dos braços.', 
     detailedDescription: 'Mantenha as escápulas aduzidas (fechadas) contra o banco. Desça os halteres de forma controlada até que fiquem alinhados com o peito, mantendo os cotovelos em um ângulo aproximado de 45 graus em relação ao tronco para proteger os ombros.', 
-    videoUrl: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpwaG54cXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4NXN4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l41lS27zPXP682888/giphy.gif' 
+    videoUrl: 'images/exercise-close-grip-bench-press.mp4' 
   },
   { 
     id: '1-b', 
@@ -22,21 +22,21 @@ const EXERCISES: Exercise[] = [
     targetMuscle: 'Peitoral / Tríceps', 
     instructions: 'Deite-se no banco e segure a barra com as mãos em uma largura menor que a dos ombros. Desça a barra até o peito mantendo os cotovelos próximos ao corpo.', 
     detailedDescription: 'Foco intenso no tríceps e na porção medial do peitoral. O uso do arquivo MP4 garante visualização fluida do movimento técnico de compressão.', 
-    videoUrl: 'exercise-close-grip-bench-press.mp4' 
+    videoUrl: 'images/exercise-close-grip-bench-press.mp4' 
   },
-  { id: '2', name: 'Supino Inclinado', targetMuscle: 'Peitoral', instructions: 'Banco a 45º, empurre os halteres para cima.', detailedDescription: 'Foco na porção superior do peitoral.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
-  { id: '3', name: 'Peck Deck', targetMuscle: 'Peitoral', instructions: 'Feche os braços à frente do corpo.', detailedDescription: 'Mantenha o peito estufado.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
+  { id: '2', name: 'Supino Inclinado', targetMuscle: 'Peitoral', instructions: 'Banco a 45º, empurre os halteres para cima.', detailedDescription: 'Foco na porção superior do peitoral.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
+  { id: '3', name: 'Peck Deck', targetMuscle: 'Peitoral', instructions: 'Feche os braços à frente do corpo.', detailedDescription: 'Mantenha o peito estufado.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
   
   // DORSAIS
-  { id: '6', name: 'Remada Curvada', targetMuscle: 'Dorsais', instructions: 'Puxe a barra ao abdômen inclinando o tronco.', detailedDescription: 'Coluna neutra sempre.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
-  { id: '7', name: 'Puxada Alta', targetMuscle: 'Dorsais', instructions: 'Puxe a barra ao peito.', detailedDescription: 'Cotovelos para baixo e para trás.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
+  { id: '6', name: 'Remada Curvada', targetMuscle: 'Dorsais', instructions: 'Puxe a barra ao abdômen inclinando o tronco.', detailedDescription: 'Coluna neutra sempre.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
+  { id: '7', name: 'Puxada Alta', targetMuscle: 'Dorsais', instructions: 'Puxe a barra ao peito.', detailedDescription: 'Cotovelos para baixo e para trás.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
 
   // PERNAS
-  { id: '11', name: 'Agachamento Livre', targetMuscle: 'Pernas', instructions: 'Desça o quadril mantendo a coluna reta.', detailedDescription: 'Amplitude máxima permitida.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
-  { id: '12', name: 'Leg Press 45º', targetMuscle: 'Pernas', instructions: 'Empurre a plataforma com os pés.', detailedDescription: 'Não trave os joelhos.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
+  { id: '11', name: 'Agachamento Livre', targetMuscle: 'Pernas', instructions: 'Desça o quadril mantendo a coluna reta.', detailedDescription: 'Amplitude máxima permitida.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
+  { id: '12', name: 'Leg Press 45º', targetMuscle: 'Pernas', instructions: 'Empurre a plataforma com os pés.', detailedDescription: 'Não trave os joelhos.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/3o7TKv6eS0p/giphy.gif' },
 
   // OMBROS
-  { id: '18', name: 'Desenvolvimento', targetMuscle: 'Ombros', instructions: 'Halteres acima da cabeça.', detailedDescription: 'Controle o movimento.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
+  { id: '18', name: 'Desenvolvimento', targetMuscle: 'Ombros', instructions: 'Halteres acima da cabeça.', detailedDescription: 'Controle o movimento.', videoUrl: 'https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZubXF6bmN4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4Z3R4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/l0HlPtbHE2iJJki52/giphy.gif' },
 ];
 
 const ExerciseModal: React.FC<{ exercise: Exercise; onClose: () => void }> = ({ exercise, onClose }) => {
