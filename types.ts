@@ -40,3 +40,13 @@ export interface RunningLog {
   sensation: 'Muito Cansado' | 'Cansado' | 'Bem' | 'Ótimo' | 'Invencível';
   notes?: string;
 }
+
+export interface TriathlonLog {
+  id: string;
+  date: string;
+  modality: 'Natação' | 'Ciclismo' | 'Corrida' | 'Brick';
+  distance: number;
+  durationMinutes: number;
+  intensity: 'Z1' | 'Z2' | 'Z3' | 'Z4' | 'Z5';
+  notes?: string;
+}

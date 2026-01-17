@@ -5,7 +5,7 @@ import { RunningLog } from '../types';
 import RunningPeriodization from './RunningPeriodization';
 
 const RunningSection: React.FC = () => {
-  // --- Estados da Calculadora de Pace ---
+  // --- Estados da Calculadora de Ritmo ---
   const [calcDist, setCalcDist] = useState<string>('10');
   const [calcH, setCalcH] = useState<string>('0');
   const [calcM, setCalcM] = useState<string>('50');
@@ -28,7 +28,7 @@ const RunningSection: React.FC = () => {
     localStorage.setItem('asantos_running_logs_v1', JSON.stringify(logs));
   }, [logs]);
 
-  // --- Lógica de Cálculo de Pace ---
+  // --- Lógica de Cálculo de Ritmo (Pace) ---
   const paceResults = useMemo(() => {
     const d = parseFloat(calcDist);
     const h = parseInt(calcH || '0');
@@ -79,7 +79,7 @@ const RunningSection: React.FC = () => {
       {/* Calculadoras Principais */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
-        {/* Calculadora de Pace Profissional */}
+        {/* Calculadora de Ritmo Profissional */}
         <div className="glass-card rounded-[2.5rem] overflow-hidden border-orange-500/20 shadow-2xl">
           <div className="p-8 border-b border-slate-800 bg-orange-900/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -87,7 +87,7 @@ const RunningSection: React.FC = () => {
                 <Calculator size={20} />
               </div>
               <div>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-white">Calculadora de Pace</h3>
+                <h3 className="text-xl font-bold uppercase tracking-tight text-white">Calculadora de Ritmo</h3>
                 <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest">Performance & Estimativa</p>
               </div>
             </div>
@@ -156,7 +156,7 @@ const RunningSection: React.FC = () => {
                   <div className="absolute -right-4 -bottom-4 text-white/10 group-hover:scale-110 transition-transform duration-700">
                     <Zap size={120} />
                   </div>
-                  <p className="text-[10px] font-black uppercase text-orange-200 mb-2 tracking-widest relative z-10">Pace Médio Necessário</p>
+                  <p className="text-[10px] font-black uppercase text-orange-200 mb-2 tracking-widest relative z-10">Ritmo Médio Necessário</p>
                   <div className="text-5xl font-black italic text-white relative z-10">
                     {paceResults.pace} 
                     <span className="text-sm not-italic ml-2 opacity-80 font-black uppercase">{paceResults.unitLabel}</span>
@@ -173,7 +173,7 @@ const RunningSection: React.FC = () => {
               </div>
             ) : (
               <div className="p-8 border-2 border-dashed border-slate-800 rounded-[2rem] text-center">
-                <p className="text-xs font-bold text-slate-600 uppercase tracking-widest">Insira os dados acima para calcular o Pace</p>
+                <p className="text-xs font-bold text-slate-600 uppercase tracking-widest">Insira os dados acima para calcular o Ritmo</p>
               </div>
             )}
           </div>

@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Activity, User, Ruler, Calculator, Info, TrendingDown, TrendingUp } from 'lucide-react';
 
@@ -83,7 +84,7 @@ const Biometry: React.FC = () => {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Gênero</label>
+              <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Género</label>
               <div className="flex bg-slate-100 dark:bg-slate-800 rounded-xl p-1">
                 <button 
                   onClick={() => setGender('male')}
@@ -117,7 +118,7 @@ const Biometry: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
              {/* IMC Card */}
              <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 shadow-sm flex flex-col items-center text-center">
-                <span className="text-[10px] font-black text-slate-400 uppercase mb-2">Seu IMC</span>
+                <span className="text-[10px] font-black text-slate-400 uppercase mb-2">O Seu IMC</span>
                 <div className={`text-4xl font-black mb-1 ${stats.imcColor}`}>{stats.imc}</div>
                 <div className={`text-[10px] font-bold uppercase tracking-widest mb-4 ${stats.imcColor}`}>{stats.imcCategory}</div>
                 <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden flex">
@@ -148,13 +149,13 @@ const Biometry: React.FC = () => {
                </div>
                <div className="flex items-center justify-between">
                  <span className="text-xs text-slate-600 dark:text-slate-400 flex items-center gap-1">
-                   <TrendingDown size={12} className="text-red-500" /> Perda (Déficit)
+                   <TrendingDown size={12} className="text-red-500" /> Perda (Défice)
                  </span>
                  <span className="text-sm font-black text-slate-900 dark:text-white">{Math.round(stats.tmb * 1.3) - 500} kcal</span>
                </div>
                <div className="flex items-center justify-between">
                  <span className="text-xs text-slate-600 dark:text-slate-400 flex items-center gap-1">
-                   <TrendingUp size={12} className="text-blue-500" /> Ganho (Superávit)
+                   <TrendingUp size={12} className="text-blue-500" /> Ganho (Superavit)
                  </span>
                  <span className="text-sm font-black text-slate-900 dark:text-white">{Math.round(stats.tmb * 1.3) + 300} kcal</span>
                </div>

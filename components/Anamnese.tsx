@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { ClipboardList, Download, Activity, AlertCircle, FileText, CheckCircle2, Circle, CheckCircle, Target, CheckSquare, Square, Stethoscope, Moon, Cigarette, Wine, HeartPulse } from 'lucide-react';
 import jsPDF from 'jspdf';
@@ -5,10 +6,10 @@ import html2canvas from 'html2canvas';
 
 const PARQ_QUESTIONS = [
   { id: 1, text: "O seu médico já lhe disse que possui algum problema cardíaco?" },
-  { id: 2, text: "Você sente dores no peito quando pratica atividade física?" },
-  { id: 3, text: "Você perde o equilíbrio devido a tontura ou perdeu a consciência recentemente?" },
+  { id: 2, text: "Sente dores no peito quando pratica atividade física?" },
+  { id: 3, text: "Perde o equilíbrio devido a tonturas ou perdeu a consciência recentemente?" },
   { id: 4, text: "Possui algum problema ósseo ou articular que pode piorar com o exercício?" },
-  { id: 5, text: "Toma algum medicamento para pressão arterial ou coração?" }
+  { id: 5, text: "Toma algum medicamento para a pressão arterial ou coração?" }
 ];
 
 const MEDICAL_CONDITIONS = [
@@ -19,7 +20,7 @@ const LIFESTYLE_HABITS = {
   sleep: ["Menos de 5h", "5h a 7h", "7h a 9h", "Mais de 9h"],
   activity: ["Sedentário", "Levemente Ativo", "Ativo", "Muito Ativo"],
   alcohol: ["Não consumo", "Socialmente", "Frequente"],
-  smoking: ["Não fumante", "Fumante", "Ex-fumante"]
+  smoking: ["Não fumador", "Fumador", "Ex-fumador"]
 };
 
 const TRAINING_GOALS = [
@@ -36,7 +37,7 @@ const Anamnese: React.FC = () => {
     sleep: '7h a 9h',
     activity: 'Ativo',
     alcohol: 'Não consumo',
-    smoking: 'Não fumante'
+    smoking: 'Não fumador'
   });
   const [showError, setShowError] = useState(false);
 
@@ -57,7 +58,7 @@ const Anamnese: React.FC = () => {
       return;
     }
 
-    const today = new Date().toLocaleDateString('pt-BR');
+    const today = new Date().toLocaleDateString('pt-PT');
     const title = `Relatório de Anamnese & Saúde - ${today}`;
     
     const header = `
@@ -96,11 +97,11 @@ const Anamnese: React.FC = () => {
 
       <div style="margin-top: 25px; background: #f8fafc; padding: 20px; border-radius: 10px;">
         <h2 style="color: #be123c; font-size: 14pt; text-transform: uppercase; margin-bottom: 15px;">4. Hábitos de Vida</h2>
-        <div style="display: grid; grid-template-cols: 1fr 1fr; gap: 10px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
           <p><b>Sono:</b> ${lifestyle.sleep}</p>
           <p><b>Atividade Atual:</b> ${lifestyle.activity}</p>
           <p><b>Álcool:</b> ${lifestyle.alcohol}</p>
-          <p><b>Fumo:</b> ${lifestyle.smoking}</p>
+          <p><b>Tabaco:</b> ${lifestyle.smoking}</p>
         </div>
       </div>
 
@@ -155,7 +156,7 @@ const Anamnese: React.FC = () => {
         <div className="space-y-8">
           <section className="bg-white dark:bg-slate-900/40 p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm">
             <h4 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
-              <Target size={16} className="text-rose-500" /> Metas de Treinamento
+              <Target size={16} className="text-rose-500" /> Metas de Treino
             </h4>
             <div className="grid grid-cols-2 gap-2">
               {TRAINING_GOALS.map(goal => (
@@ -243,7 +244,7 @@ const Anamnese: React.FC = () => {
         <div className="p-4 bg-rose-50 dark:bg-rose-900/20 rounded-2xl border border-rose-100 dark:border-rose-800 flex items-start gap-4 shadow-sm">
           <AlertCircle className="text-rose-500 shrink-0 mt-0.5" size={18} />
           <p className="text-[10px] text-rose-700 dark:text-rose-400 leading-tight italic font-medium">
-            <strong>DICA PROFISSIONAL:</strong> A anamnese é o alicerce da prescrição segura. Se o aluno responder "SIM" a qualquer item do PAR-Q ou possuir condições clínicas severas, a liberação médica torna-se imprescindível antes da carga inicial.
+            <strong>DICA PROFISSIONAL:</strong> A anamnese é o alicerce da prescrição segura. Se o aluno responder "SIM" a qualquer item do PAR-Q ou possuir condições clínicas severas, a autorização médica torna-se imprescindível antes da carga inicial.
           </p>
         </div>
       </div>

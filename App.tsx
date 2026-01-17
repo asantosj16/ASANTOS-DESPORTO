@@ -47,12 +47,12 @@ const App: React.FC = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 px-4">
               {[
-                { id: AppSection.ESCOLAR, title: 'Educação Física Escolar', icon: GraduationCap, color: 'bg-blue-600', desc: 'BNCC, Planos e Pedagogia' },
+                { id: AppSection.ESCOLAR, title: 'Educação Física Escolar', icon: GraduationCap, color: 'bg-blue-600', desc: 'Referenciais, Planos e Pedagogia' },
                 { id: AppSection.MUSCULACAO, title: 'Musculação', icon: Dumbbell, color: 'bg-slate-700', desc: 'Periodização e Biomecânica' },
                 { id: AppSection.NATACAO, title: 'Natação', icon: Waves, color: 'bg-sky-500', desc: 'Técnica e Segurança Aquática' },
-                { id: AppSection.TRIATHLON, title: 'Triathlon Performance', icon: Zap, color: 'bg-yellow-500', desc: 'Swim, Bike & Run Combined' },
+                { id: AppSection.TRIATHLON, title: 'Triathlon Performance', icon: Zap, color: 'bg-yellow-500', desc: 'Swim, Bike & Run Combinados' },
                 { id: AppSection.HYROX, title: 'Hyrox', icon: Timer, color: 'bg-purple-600', desc: 'Treino Híbrido de Alta Intensidade' },
-                { id: AppSection.CORRIDA, title: 'Performance em Corrida', icon: Footprints, color: 'bg-orange-600', desc: 'Pace e Planilhas de Endurance' },
+                { id: AppSection.CORRIDA, title: 'Performance em Corrida', icon: Footprints, color: 'bg-orange-600', desc: 'Ritmo e Planilhas de Endurance' },
                 { id: AppSection.NUTRICAO, title: 'Nutrição Desportiva', icon: Apple, color: 'bg-green-600', desc: 'Alimentação para Performance' },
                 { id: AppSection.DOCUMENTOS, title: 'Documentos Científicos', icon: FileText, color: 'bg-emerald-600', desc: 'Base de Dados e Evidências HD' },
               ].map((card, i) => (
@@ -76,7 +76,7 @@ const App: React.FC = () => {
       
       case AppSection.ESCOLAR:
         return (
-          <SectionWrapper icon={<GraduationCap />} title="Escolar" subtitle="Planeamento BNCC e Avaliação Diagnóstica." colorClass="bg-blue-600">
+          <SectionWrapper icon={<GraduationCap />} title="Escolar" subtitle="Planeamento Curricular e Avaliação Diagnóstica." colorClass="bg-blue-600">
             <AICoach section={AppSection.ESCOLAR} />
             <div className="space-y-8 md:space-y-12">
               <LessonPlanning />
@@ -86,7 +86,7 @@ const App: React.FC = () => {
         );
       case AppSection.MUSCULACAO:
         return (
-          <SectionWrapper icon={<Dumbbell />} title="Musculação" subtitle="Periodização e Biomecânica." colorClass="bg-slate-700">
+          <SectionWrapper icon={<Dumbbell />} title="Musculação" subtitle="Periodização e Biomecânica de Treino." colorClass="bg-slate-700">
             <AICoach section={AppSection.MUSCULACAO} />
             <div className="space-y-8 md:space-y-12">
               <Anamnese />
@@ -99,7 +99,7 @@ const App: React.FC = () => {
         );
       case AppSection.CORRIDA:
         return (
-          <SectionWrapper icon={<Footprints />} title="Corrida" subtitle="Monitorização de Pace e Evolução Semanal." colorClass="bg-orange-600">
+          <SectionWrapper icon={<Footprints />} title="Corrida" subtitle="Monitorização de Ritmo e Evolução Semanal." colorClass="bg-orange-600">
             <AICoach section={AppSection.CORRIDA} />
             <div className="pt-2">
               <RunningSection />
@@ -117,7 +117,7 @@ const App: React.FC = () => {
         );
       case AppSection.NATACAO:
         return (
-          <SectionWrapper icon={<Waves />} title="Natação" subtitle="Técnica, Hidroginástica e Salvamento." colorClass="bg-sky-500">
+          <SectionWrapper icon={<Waves />} title="Natação" subtitle="Técnica, Hidroginástica e Salvamento Aquático." colorClass="bg-sky-500">
             <AICoach section={AppSection.NATACAO} />
             <div className="space-y-8 md:space-y-12">
               <SwimmingTechnique />

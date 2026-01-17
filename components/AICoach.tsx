@@ -36,7 +36,7 @@ const AICoach: React.FC<AICoachProps> = ({ section }) => {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Ex: Como planejar aula de Parkour?"
+          placeholder="Ex: Como planear aula de Parkour?"
           className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl md:rounded-2xl py-3 md:py-4 pl-4 md:pl-6 pr-12 md:pr-14 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-slate-800 dark:text-slate-100 text-sm md:text-base"
         />
         <button 

@@ -17,8 +17,8 @@ const Sidebar: React.FC<SidebarProps> = ({ currentSection, setSection }) => {
     { id: AppSection.NATACAO, label: 'Água', icon: Waves },
     { id: AppSection.CORRIDA, label: 'Corrida', icon: Footprints },
     { id: AppSection.TRIATHLON, label: 'Triathlon', icon: Zap },
-    { id: AppSection.NUTRICAO, label: 'Saúde', icon: Activity },
     { id: AppSection.HYROX, label: 'Hyrox', icon: Timer },
+    { id: AppSection.NUTRICAO, label: 'Saúde', icon: Activity },
     { id: AppSection.DOCUMENTOS, label: 'Docs', icon: FileText },
   ];
 
