@@ -12,6 +12,7 @@ import Calisthenics from './components/Calisthenics';
 import Biometry from './components/Biometry';
 import SwimmingTechnique from './components/SwimmingTechnique';
 import SwimmingLog from './components/SwimmingLog';
+import SwimmingInfantil from './components/SwimmingInfantil';
 import WaterAerobics from './components/WaterAerobics';
 import AquaticSafety from './components/AquaticSafety';
 import NatacaoAdaptada from './components/NatacaoAdaptada';
@@ -122,6 +123,7 @@ const App: React.FC = () => {
             <AICoach section={AppSection.NATACAO} />
             <div className="space-y-8 md:space-y-12">
               <SwimmingLog />
+              <SwimmingInfantil />
               <SwimmingTechnique />
               <NatacaoAdaptada />
               <WaterAerobics />
