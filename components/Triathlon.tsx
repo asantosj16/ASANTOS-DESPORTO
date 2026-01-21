@@ -1,6 +1,6 @@
 
-import React, { useState, useEffect } from 'react';
-import { Zap, Trophy, Timer, ArrowRight, Bike, Waves, Footprints, Target, Info, Activity, ClipboardList, Plus, Trash2, Calendar, ShieldCheck } from 'lucide-react';
+import React, { useState } from 'react';
+import { Zap, Trophy, Timer, Bike, Waves, Footprints, Target, Activity, ClipboardList, ShieldCheck } from 'lucide-react';
 import { TriathlonLog } from '../types';
 
 type SkillLevel = 'Iniciante' | 'Intermédio' | 'Avançado';
@@ -53,45 +53,8 @@ const TRIATHLON_PLANS: TriathlonPlan[] = [
 
 const Triathlon: React.FC = () => {
   const [activeLevel, setActiveLevel] = useState<SkillLevel>('Iniciante');
-  const [logs, setLogs] = useState<TriathlonLog[]>(() => {
-    const saved = localStorage.getItem('asantos_triathlon_logs_v1');
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  // Estado para o formulário de registo
-  const [newLog, setNewLog] = useState<Partial<TriathlonLog>>({
-    modality: 'Natação',
-    intensity: 'Z2',
-    distance: 0,
-    durationMinutes: 0
-  });
-
-  useEffect(() => {
-    localStorage.setItem('asantos_triathlon_logs_v1', JSON.stringify(logs));
-  }, [logs]);
-
+  
   const currentPlan = TRIATHLON_PLANS.find(p => p.level === activeLevel)!;
-
-  const handleAddLog = () => {
-    if (!newLog.distance || !newLog.durationMinutes) return;
-    
-    const log: TriathlonLog = {
-      id: crypto.randomUUID(),
-      date: new Date().toLocaleDateString('pt-PT'),
-      modality: newLog.modality as any,
-      distance: Number(newLog.distance),
-      durationMinutes: Number(newLog.durationMinutes),
-      intensity: newLog.intensity as any,
-      notes: newLog.notes
-    };
-
-    setLogs([log, ...logs]);
-    setNewLog({ ...newLog, distance: 0, durationMinutes: 0, notes: '' });
-  };
-
-  const removeLog = (id: string) => {
-    setLogs(logs.filter(l => l.id !== id));
-  };
 
   return (
     <div className="space-y-12 animate-fade-in-up">

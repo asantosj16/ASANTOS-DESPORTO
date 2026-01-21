@@ -1,7 +1,6 @@
 
-import React, { useState, useMemo, useEffect } from 'react';
-import { Timer, Footprints, Calculator, RefreshCw, Target, Clock, Wind, Plus, Trophy, Zap, ClipboardList, Trash2, Calendar, Activity } from 'lucide-react';
-import { RunningLog } from '../types';
+import React, { useState, useMemo } from 'react';
+import { Calculator, Target, Clock, Zap, Wind } from 'lucide-react';
 import RunningPeriodization from './RunningPeriodization';
 
 const RunningSection: React.FC = () => {
@@ -15,53 +14,6 @@ const RunningSection: React.FC = () => {
   // --- Estados do Cooper (VO2 Max) ---
   const [cooperDist, setCooperDist] = useState<string>('2400');
   const [cooperGender, setCooperGender] = useState<'male' | 'female'>('male');
-
-  // --- Persistência de Logs ---
-  const [logs, setLogs] = useState<RunningLog[]>(() => {
-    try {
-      const saved = localStorage.getItem('asantos_running_logs_v1');
-      return saved ? JSON.parse(saved) : [];
-    } catch { return []; }
-  });
-
-  const [newLog, setNewLog] = useState<Partial<RunningLog>>({
-    sensation: 'Bem',
-    distance: 0,
-    durationSeconds: 0
-  });
-
-  useEffect(() => {
-    localStorage.setItem('asantos_running_logs_v1', JSON.stringify(logs));
-  }, [logs]);
-
-  const handleAddLog = () => {
-    if (!newLog.distance || !newLog.durationSeconds) return;
-    
-    // Cálculo de Pace para o Log
-    const dist = Number(newLog.distance);
-    const secs = Number(newLog.durationSeconds);
-    const paceTotalSeconds = secs / dist;
-    const paceM = Math.floor(paceTotalSeconds / 60);
-    const paceS = Math.round(paceTotalSeconds % 60);
-    const paceStr = `${paceM}:${paceS.toString().padStart(2, '0')}`;
-
-    const log: RunningLog = {
-      id: crypto.randomUUID(),
-      date: new Date().toLocaleDateString('pt-PT'),
-      distance: dist,
-      durationSeconds: secs,
-      pace: paceStr,
-      sensation: newLog.sensation as any,
-      notes: newLog.notes
-    };
-
-    setLogs([log, ...logs]);
-    setNewLog({ ...newLog, distance: 0, durationSeconds: 0, notes: '' });
-  };
-
-  const removeLog = (id: string) => {
-    setLogs(logs.filter(l => l.id !== id));
-  };
 
   // --- Lógica de Cálculo de Ritmo (Pace) ---
   const paceResults = useMemo(() => {
