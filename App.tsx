@@ -91,7 +91,6 @@ const App: React.FC = () => {
           <SectionWrapper icon={<Dumbbell />} title="Musculação" subtitle="Periodização e Biomecânica de Treino." colorClass="bg-slate-700">
             <AICoach section={AppSection.MUSCULACAO} />
             <div className="space-y-8 md:space-y-12">
-              <Anamnese />
               <AnnualPeriodization />
               <Calisthenics />
               <ExerciseTable />
@@ -122,7 +121,6 @@ const App: React.FC = () => {
           <SectionWrapper icon={<Waves />} title="Natação" subtitle="Técnica, Hidroginástica e Salvamento Aquático." colorClass="bg-sky-500">
             <AICoach section={AppSection.NATACAO} />
             <div className="space-y-8 md:space-y-12">
-              <SwimmingLog />
               <SwimmingInfantil />
               <SwimmingTechnique />
               <NatacaoAdaptada />
@@ -136,7 +134,6 @@ const App: React.FC = () => {
           <SectionWrapper icon={<Apple />} title="Nutrição" subtitle="Pirâmide Alimentar e Avaliação Antropométrica." colorClass="bg-green-600">
             <AICoach section={AppSection.NUTRICAO} />
             <div className="space-y-8 md:space-y-12">
-              <Biometry />
               <NutricaoDesportiva />
             </div>
           </SectionWrapper>

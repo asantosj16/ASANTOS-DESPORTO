@@ -1,6 +1,130 @@
 
 import React, { useState } from 'react';
-import { Apple, Scale, Activity, Flame, ChevronRight, Info, CheckCircle2 } from 'lucide-react';
+import { Apple, Scale, Activity, Flame, ChevronRight, Info, CheckCircle2, Ruler, Orbit, PersonStanding } from 'lucide-react';
+import Anamnese from './Anamnese';
+import Biometry from './Biometry';
+
+const Bioimpedancia: React.FC = () => {
+  const [data, setData] = useState({
+    bodyFat: 15,
+    muscleMass: 60,
+    visceralFat: 4,
+    boneMass: 3.5,
+    water: 60,
+    metabolicAge: 25
+  });
+
+  return (
+    <div className="glass-card p-10 rounded-[2.5rem] border-purple-500/20">
+      <h4 className="text-white font-black uppercase text-xl mb-8 flex items-center gap-3">
+        <Orbit className="text-purple-500" /> Bioimpedância (BIA)
+      </h4>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          { label: 'Gordura Corporal (%)', key: 'bodyFat', unit: '%' },
+          { label: 'Massa Muscular (kg)', key: 'muscleMass', unit: 'kg' },
+          { label: 'Gordura Visceral', key: 'visceralFat', unit: '' },
+          { label: 'Massa Óssea (kg)', key: 'boneMass', unit: 'kg' },
+          { label: 'Água Corporal (%)', key: 'water', unit: '%' },
+          { label: 'Idade Metabólica', key: 'metabolicAge', unit: 'anos' }
+        ].map((item) => (
+          <div key={item.key} className="bg-slate-900/50 p-6 rounded-3xl border border-slate-800 hover:border-purple-500/30 transition-all">
+            <label className="block text-[10px] font-black text-slate-500 uppercase mb-2">{item.label}</label>
+            <div className="relative">
+              <input
+                type="number"
+                value={data[item.key as keyof typeof data]}
+                onChange={(e) => setData({ ...data, [item.key]: Number(e.target.value) })}
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-white font-bold"
+              />
+              <span className="absolute right-4 top-3 text-xs font-black text-slate-600 uppercase">{item.unit}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const Antropometria: React.FC = () => {
+    const [data, setData] = useState({
+        weight: 75,
+        height: 175,
+        waist: 80,
+        hip: 100,
+        armRight: 35,
+        armLeft: 35,
+        thighRight: 55,
+        thighLeft: 55,
+        triceps: 10,
+        subscapular: 12,
+        suprailiac: 15,
+        abdominal: 20
+    });
+
+    return (
+        <div className="glass-card p-10 rounded-[2.5rem] border-blue-500/20">
+            <h4 className="text-white font-black uppercase text-xl mb-8 flex items-center gap-3">
+                <Ruler className="text-blue-500" /> Antropometria
+            </h4>
+            
+            <div className="space-y-8">
+                {/* Basic Metrics */}
+                <div>
+                   <h5 className="text-xs font-black text-white uppercase tracking-widest mb-4 border-b border-white/5 pb-2">Dados Básicos</h5>
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                            <label className="text-[9px] font-black text-slate-500 uppercase">Peso (kg)</label>
+                            <input type="number" value={data.weight} onChange={(e) => setData({...data, weight: Number(e.target.value)})} className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-white font-bold"/>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-[9px] font-black text-slate-500 uppercase">Altura (cm)</label>
+                            <input type="number" value={data.height} onChange={(e) => setData({...data, height: Number(e.target.value)})} className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-white font-bold"/>
+                        </div>
+                   </div>
+                </div>
+
+                {/* Circumferences */}
+                <div>
+                    <h5 className="text-xs font-black text-white uppercase tracking-widest mb-4 border-b border-white/5 pb-2">Circunferências (cm)</h5>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        {[
+                            { label: 'Cintura', key: 'waist' },
+                            { label: 'Quadril', key: 'hip' },
+                            { label: 'Braço Dir.', key: 'armRight' },
+                            { label: 'Braço Esq.', key: 'armLeft' },
+                            { label: 'Coxa Dir.', key: 'thighRight' },
+                            { label: 'Coxa Esq.', key: 'thighLeft' }
+                        ].map((item) => (
+                           <div key={item.key} className="space-y-2">
+                                <label className="text-[9px] font-black text-slate-500 uppercase">{item.label}</label>
+                                <input type="number" value={data[item.key as keyof typeof data]} onChange={(e) => setData({...data, [item.key]: Number(e.target.value)})} className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-white font-bold"/>
+                           </div> 
+                        ))}
+                    </div>
+                </div>
+
+                {/* Skinfolds */}
+                <div>
+                    <h5 className="text-xs font-black text-white uppercase tracking-widest mb-4 border-b border-white/5 pb-2">Dobras Cutâneas (mm)</h5>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                         {[
+                            { label: 'Tricipital', key: 'triceps' },
+                            { label: 'Subescapular', key: 'subscapular' },
+                            { label: 'Supra-ilíaca', key: 'suprailiac' },
+                            { label: 'Abdominal', key: 'abdominal' }
+                        ].map((item) => (
+                           <div key={item.key} className="space-y-2">
+                                <label className="text-[9px] font-black text-slate-500 uppercase">{item.label}</label>
+                                <input type="number" value={data[item.key as keyof typeof data]} onChange={(e) => setData({...data, [item.key]: Number(e.target.value)})} className="w-full bg-slate-900 border border-slate-800 rounded-xl p-3 text-white font-bold"/>
+                           </div> 
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 const FoodPyramid: React.FC = () => {
   const levels = [
@@ -50,6 +174,11 @@ const NutricaoDesportiva: React.FC = () => {
 
   return (
     <div className="space-y-12">
+        <Anamnese />
+        <Bioimpedancia />
+        <Antropometria />
+        <Biometry />
+        
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-1 glass-card p-10 rounded-[2.5rem]">
           <h3 className="text-2xl font-black text-white mb-8 uppercase tracking-tighter flex items-center gap-3"><Scale className="text-green-500" />Perfil Nutricional</h3>

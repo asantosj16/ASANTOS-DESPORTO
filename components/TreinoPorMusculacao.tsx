@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Dumbbell, CheckCircle2, ArrowRight, Play, X, Target, Zap, AlertCircle } from 'lucide-react';
+import TestesAptidaoFisica from './TestesAptidaoFisica';
 
 interface Exercise {
   name: string;
@@ -738,6 +739,7 @@ const TreinoPorMusculacao: React.FC = () => {
 
   return (
     <div className="space-y-6">
+      <TestesAptidaoFisica />
       {/* Periodização Section */}
       <div className="glass-card rounded-3xl overflow-hidden animate-fade-in-up stagger-3 opacity-0" style={{ animationFillMode: 'forwards' }}>
         <div className="p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
