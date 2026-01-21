@@ -23,6 +23,7 @@ import NutricaoDesportiva from './components/NutricaoDesportiva';
 import SectionWrapper from './components/SectionWrapper';
 import HIITProtocols from './components/HIITProtocols';
 import ScientificDocuments from './components/ScientificDocuments';
+import TestesAptidaoFisica from './components/TestesAptidaoFisica';
 import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -91,6 +92,7 @@ const App: React.FC = () => {
           <SectionWrapper icon={<Dumbbell />} title="Musculação" subtitle="Periodização e Biomecânica de Treino." colorClass="bg-slate-700">
             <AICoach section={AppSection.MUSCULACAO} />
             <div className="space-y-8 md:space-y-12">
+              <TestesAptidaoFisica />
               <AnnualPeriodization />
               <Calisthenics />
               <ExerciseTable />
