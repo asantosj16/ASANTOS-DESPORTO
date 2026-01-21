@@ -742,19 +742,19 @@ const TreinoPorMusculacao: React.FC = () => {
       <TestesAptidaoFisica />
       {/* Periodização Section */}
       <div className="glass-card rounded-3xl overflow-hidden animate-fade-in-up stagger-3 opacity-0" style={{ animationFillMode: 'forwards' }}>
-        <div className="p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
+        <div className="p-6 md:p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
           <div className="flex items-center gap-3 mb-2">
             <div className="bg-slate-900 dark:bg-slate-700 p-2 rounded-xl text-white shadow-md">
               <Dumbbell size={24} />
             </div>
             <div>
-              <h4 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Periodização de Musculação</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Modelo clássico de periodização linear ao longo de 32 semanas.</p>
+              <h4 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Periodização de Musculação</h4>
+              <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400">Modelo clássico de periodização linear ao longo de 32 semanas.</p>
             </div>
           </div>
         </div>
         
-        <div className="p-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {[
             { phase: "Anatômica", weeks: "1-4", focus: "Adaptação", desc: "Ajuste neural e ligamentar. Cargas baixas, repetições médias/altas.", color: "bg-emerald-500" },
             { phase: "Hipertrofia", weeks: "5-16", focus: "Volume", desc: "Aumento de massa muscular. Cargas moderadas (70-85% 1RM).", color: "bg-blue-500" },
@@ -785,14 +785,14 @@ const TreinoPorMusculacao: React.FC = () => {
 
       {/* Exercise Library Section */}
       <div className="glass-card rounded-3xl overflow-hidden animate-fade-in-up stagger-4 opacity-0" style={{ animationFillMode: 'forwards' }}>
-        <div className="p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
+        <div className="p-6 md:p-8 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20">
           <div className="flex items-center gap-3 mb-4">
             <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-2 rounded-xl text-white shadow-md">
               <Target size={24} />
             </div>
             <div>
-              <h4 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Biblioteca de Exercícios</h4>
-              <p className="text-sm text-slate-600 dark:text-slate-400">Mais de 50 exercícios com vídeos demonstrativos e instruções detalhadas</p>
+              <h4 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Biblioteca de Exercícios</h4>
+              <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400">Mais de 50 exercícios com vídeos demonstrativos e instruções detalhadas</p>
             </div>
           </div>
 
