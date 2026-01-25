@@ -25,11 +25,42 @@ import ReabilitacaoMuscular from './components/ReabilitacaoMuscular';
 import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
-  const [currentSection, setCurrentSection] = useState<AppSection>(AppSection.HOME);
+  const [currentSection, setCurrentSection] = useState<AppSection>(() => {
+    // Inicializar com a seção do histórico, se existir
+    const state = window.history.state;
+    return state?.section || AppSection.HOME;
+  });
 
   useEffect(() => {
     window.document.documentElement.classList.add('dark');
+
+    // Listener para o botão voltar do navegador
+    const handlePopState = (event: PopStateEvent) => {
+      const section = event.state?.section || AppSection.HOME;
+      setCurrentSection(section);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    // Definir o estado inicial no histórico se ainda não existir
+    if (!window.history.state?.section) {
+      window.history.replaceState({ section: AppSection.HOME }, '', '');
+    }
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
   }, []);
+
+  // Função para mudar de seção com suporte a histórico
+  const handleSetSection = (section: AppSection) => {
+    if (section !== currentSection) {
+      setCurrentSection(section);
+      window.history.pushState({ section }, '', '');
+      // Scroll para o topo quando mudar de seção
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const renderContent = () => {
     switch (currentSection) {
@@ -59,7 +90,7 @@ const App: React.FC = () => {
               ].map((card, i) => (
                 <button
                   key={card.id}
-                  onClick={() => setCurrentSection(card.id)}
+                  onClick={() => handleSetSection(card.id)}
                   className={`group glass-card p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] text-left flex flex-col items-start gap-4 md:gap-6 animate-fade-in-up stagger-${(i % 5) + 1}`}
                 >
                   <div className={`${card.color} text-white p-3 md:p-5 rounded-xl md:rounded-[1.5rem] group-hover:scale-110 transition-transform duration-500 shadow-xl`}>
@@ -162,7 +193,7 @@ const App: React.FC = () => {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-darkBg text-white pb-24 md:pb-0">
-      <Sidebar currentSection={currentSection} setSection={setCurrentSection} />
+      <Sidebar currentSection={currentSection} setSection={handleSetSection} />
       <main className="flex-1 p-4 pt-20 md:p-8 lg:p-12 overflow-y-auto">
         {renderContent()}
       </main>
