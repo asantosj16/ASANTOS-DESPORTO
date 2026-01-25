@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Activity, Zap, PlayCircle, Trophy, BarChart2, Timer, CheckCircle2, ExternalLink, Dumbbell } from 'lucide-react';
+import { Activity, Zap, PlayCircle, Trophy, BarChart2, Timer, CheckCircle2, ExternalLink, Dumbbell, Info } from 'lucide-react';
 
 type CalisthenicsCategory = 'Fundamentos' | 'Skills' | 'Resistência';
 

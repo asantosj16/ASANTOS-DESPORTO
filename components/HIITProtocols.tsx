@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Flame, Timer, Zap, Target, Info, PlayCircle, ExternalLink, Activity } from 'lucide-react';
+import { Flame, Timer, Zap, Target, Info, PlayCircle, ExternalLink, Activity, CheckCircle2 } from 'lucide-react';
 
 interface Protocol {
   name: string;
