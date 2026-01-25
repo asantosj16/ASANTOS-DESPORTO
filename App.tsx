@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { AppSection } from './types';
 import Sidebar from './components/Sidebar';
 import AICoach from './components/AICoach';
-import ExerciseTable from './components/ExerciseTable';
 import AnnualPeriodization from './components/AnnualPeriodization';
 import RunningSection from './components/RunningSection';
 import Triathlon from './components/Triathlon';
@@ -21,6 +20,8 @@ import SectionWrapper from './components/SectionWrapper';
 import HIITProtocols from './components/HIITProtocols';
 import ScientificDocuments from './components/ScientificDocuments';
 import TestesAptidaoFisica from './components/TestesAptidaoFisica';
+import MusculacaoTerceiraIdade from './components/MusculacaoTerceiraIdade';
+import ReabilitacaoMuscular from './components/ReabilitacaoMuscular';
 import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -91,8 +92,9 @@ const App: React.FC = () => {
             <div className="space-y-8 md:space-y-12">
               <TestesAptidaoFisica />
               <AnnualPeriodization />
+              <MusculacaoTerceiraIdade />
+              <ReabilitacaoMuscular />
               <Calisthenics />
-              <ExerciseTable />
               <HIITProtocols />
             </div>
           </SectionWrapper>
