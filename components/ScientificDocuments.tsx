@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import { 
   BookOpen, GraduationCap, Dumbbell, Waves, Footprints, 
   Apple, Timer, FlaskConical, FileText, CheckCircle2, 
-  TrendingUp, Microscope, ExternalLink
+  TrendingUp, Microscope, ExternalLink, Zap
 } from 'lucide-react';
 
-type DocCategory = 'escolar' | 'musculacao' | 'natacao' | 'corrida' | 'nutricao' | 'hyrox';
+type DocCategory = 'escolar' | 'musculacao' | 'natacao' | 'corrida' | 'triathlon' | 'nutricao' | 'hyrox';
 
 interface ScientificPaper {
   title: string;
@@ -81,6 +81,43 @@ const SCIENTIFIC_DATA: Record<DocCategory, ScientificPaper[]> = {
       url: "https://pubmed.ncbi.nlm.nih.gov/21233487/"
     }
   ],
+  triathlon: [
+    {
+      title: "A Estratégia da Natação no Triathlon Muda por Sexo?",
+      author: "Vleck, V.E., Bentley, D.J., Millet, G.P., Burgi, A. (2008)",
+      summary: "Estudo sobre diferenças estratégicas entre géneros na natação de triathlon, considerando fatores fisiológicos e táticos.",
+      keyFindings: ["Mulheres adotam estratégias de pacing mais conservadoras", "Homens demonstram maior variabilidade na intensidade", "Diferenças de composição corporal influenciam flutuabilidade", "Mulheres têm melhor economia em intensidades submáximas", "Drafting é mais eficaz em homens devido à velocidade", "Fatores psicológicos diferem entre géneros"],
+      url: "https://journals.humankinetics.com/view/journals/ijspp/3/3/article-p276.xml"
+    },
+    {
+      title: "Drafting in Triathlon Swimming: Biomechanical and Physiological Responses",
+      author: "Chatard, J.C., Wilson, B. (2003)",
+      summary: "Análise dos benefícios energéticos e biomecânicos do drafting na natação de triathlon.",
+      keyFindings: ["Drafting pode reduzir gasto energético em até 38%", "Posicionamento ideal: 0.5-1.0m atrás do líder", "Benefício maior em águas agitadas", "Economia de frequência cardíaca de 10-15 bpm"],
+      url: "https://journals.lww.com/acsm-msse/"
+    },
+    {
+      title: "Sex Differences in Swimming Economy",
+      author: "Toussaint, H.M., Hollander, A.P. (2007)",
+      summary: "Investigação sobre diferenças na economia de nado entre géneros e suas implicações para triathlon.",
+      keyFindings: ["Mulheres apresentam menor custo energético por distância", "Maior percentual de gordura aumenta flutuabilidade", "Menor área frontal reduz resistência hidrodinâmica", "Técnica mais eficiente em atletas femininas de elite"],
+      url: "https://link.springer.com/journal/421"
+    },
+    {
+      title: "Transition Performance in Triathlon",
+      author: "Bonacci, J., Vleck, V., et al. (2011)",
+      summary: "Efeito da intensidade da natação no desempenho do ciclismo e gestão de transições.",
+      keyFindings: ["Intensidade elevada na natação compromete ciclismo inicial", "Tempo de recuperação na T1 é crítico", "Estratégia de pacing influencia toda a prova", "Mulheres demonstram melhor gestão de T1"],
+      url: "https://journals.lww.com/nsca-jscr/"
+    },
+    {
+      title: "Biomechanical Analysis of Open-Water Swimming",
+      author: "Coutts, A., Reaburn, P., Piva, T.J. (2007)",
+      summary: "Análise das demandas específicas da natação em águas abertas para triathlon.",
+      keyFindings: ["Águas abertas aumentam demanda metabólica em 5-10%", "Navegação consome energia adicional", "Ondulação afeta diferentemente cada género", "Experiência em águas abertas é determinante"],
+      url: "https://www.tandfonline.com/toc/rjsp20/current"
+    }
+  ],
   nutricao: [
     {
       title: "Timing de Ingestão Proteica",
@@ -123,6 +160,7 @@ const ScientificDocuments: React.FC = () => {
     { id: 'musculacao', label: 'Musculação', icon: Dumbbell, color: 'text-slate-400' },
     { id: 'natacao', label: 'Natação', icon: Waves, color: 'text-sky-500' },
     { id: 'corrida', label: 'Corrida', icon: Footprints, color: 'text-orange-500' },
+    { id: 'triathlon', label: 'Triathlon', icon: Zap, color: 'text-yellow-500' },
     { id: 'nutricao', label: 'Nutrição', icon: Apple, color: 'text-emerald-500' },
     { id: 'hyrox', label: 'Hyrox', icon: Timer, color: 'text-purple-500' },
   ];

@@ -22,7 +22,6 @@ import ScientificDocuments from './components/ScientificDocuments';
 import TestesAptidaoFisica from './components/TestesAptidaoFisica';
 import MusculacaoTerceiraIdade from './components/MusculacaoTerceiraIdade';
 import ReabilitacaoMuscular from './components/ReabilitacaoMuscular';
-import TriathlonSwimStrategy from './components/TriathlonSwimStrategy';
 import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -153,10 +152,7 @@ const App: React.FC = () => {
         return (
           <SectionWrapper icon={<FileText />} title="Referência Científica" subtitle="Base de Dados Científicos e Evidências HD." colorClass="bg-emerald-600">
              <AICoach section={AppSection.DOCUMENTOS} />
-             <div className="space-y-8 md:space-y-12">
-               <TriathlonSwimStrategy />
-               <ScientificDocuments />
-             </div>
+             <ScientificDocuments />
           </SectionWrapper>
         );
       default:
