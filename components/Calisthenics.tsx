@@ -107,6 +107,233 @@ const Calisthenics: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Exemplo de Sessão de Treino */}
+        <div className="mt-8 border-t border-slate-100 dark:border-slate-800 pt-8">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="bg-purple-600 p-2 rounded-xl text-white">
+              <Dumbbell size={20} />
+            </div>
+            <h4 className="text-xl font-bold text-slate-900 dark:text-white">Exemplo de Sessão de Treino - Calistenia</h4>
+          </div>
+
+          <div className="space-y-6">
+            {/* Aquecimento */}
+            <div className="bg-white dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Timer className="text-blue-500" size={18} />
+                <h5 className="font-bold text-slate-900 dark:text-white">1. Aquecimento (10 minutos)</h5>
+              </div>
+              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                <li className="flex gap-2">
+                  <span className="text-purple-500 font-bold">•</span>
+                  <span>Rotações articulares: pescoço, ombros, cotovelos, punhos, ancas, joelhos (3 min)</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-purple-500 font-bold">•</span>
+                  <span>10 flexões inclinadas + 10 agachamentos + 10 prancha a pé (2 rounds)</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-purple-500 font-bold">•</span>
+                  <span>Alongamentos dinâmicos: balanços de pernas, círculos de braços (3 min)</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Parte Principal */}
+            <div className="bg-gradient-to-r from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border border-purple-200 dark:border-purple-800 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Activity className="text-purple-600" size={18} />
+                <h5 className="font-bold text-slate-900 dark:text-white">2. Parte Principal - Treino Full Body (40 minutos)</h5>
+              </div>
+              
+              <div className="space-y-4">
+                <div className="bg-white/70 dark:bg-slate-900/40 rounded-xl p-4">
+                  <div className="font-bold text-purple-600 mb-3">Bloco A - Empurrar (Push)</div>
+                  <div className="space-y-3">
+                    <div className="border-l-4 border-purple-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Flexões (Push-ups)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>Série 1: Máximo de repetições</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>Série 2: 80% do máximo</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>Série 3: 60% do máximo</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 90s entre séries</div>
+                    </div>
+
+                    <div className="border-l-4 border-purple-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Flexões em Pica (Pike Push-ups)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>4 séries x 8-12 repetições</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 60s | Foco: ombros</div>
+                    </div>
+
+                    <div className="border-l-4 border-purple-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Fundos em Paralelas (Dips)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>3 séries x 10-15 repetições</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 90s | Foco: tríceps e peitoral</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/70 dark:bg-slate-900/40 rounded-xl p-4">
+                  <div className="font-bold text-purple-600 mb-3">Bloco B - Puxar (Pull)</div>
+                  <div className="space-y-3">
+                    <div className="border-l-4 border-indigo-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Pull-ups (Barra Fixa)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>5 séries x 5-8 repetições (ou negativos se necessário)</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 2 min | Foco: dorsais</div>
+                    </div>
+
+                    <div className="border-l-4 border-indigo-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Remada Australiana (Australian Pull-ups)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>4 séries x 12-15 repetições</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 60s | Foco: dorsais médios</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/70 dark:bg-slate-900/40 rounded-xl p-4">
+                  <div className="font-bold text-purple-600 mb-3">Bloco C - Pernas</div>
+                  <div className="space-y-3">
+                    <div className="border-l-4 border-pink-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Agachamentos (Pistol Squat Progressão)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>4 séries x 8-10 reps cada perna (ou box pistol)</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 90s</div>
+                    </div>
+
+                    <div className="border-l-4 border-pink-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Nordic Curls (Isquiotibiais)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>3 séries x 5-8 repetições (ou negativos)</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 2 min</div>
+                    </div>
+
+                    <div className="border-l-4 border-pink-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Elevação de Gémeos</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>4 séries x 20 repetições</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 45s</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-white/70 dark:bg-slate-900/40 rounded-xl p-4">
+                  <div className="font-bold text-purple-600 mb-3">Bloco D - Core</div>
+                  <div className="space-y-3">
+                    <div className="border-l-4 border-teal-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Prancha Isométrica</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>3 séries x 60 segundos</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 45s</div>
+                    </div>
+
+                    <div className="border-l-4 border-teal-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">L-Sit (Progressão)</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>4 séries x máximo tempo (15-30s)</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 60s</div>
+                    </div>
+
+                    <div className="border-l-4 border-teal-500 pl-4">
+                      <div className="font-semibold text-slate-900 dark:text-white mb-1">Hanging Leg Raises</div>
+                      <ul className="text-sm text-slate-700 dark:text-slate-300 space-y-1">
+                        <li className="flex items-center gap-2">
+                          <CheckCircle2 className="text-green-500 shrink-0" size={14} />
+                          <span>3 séries x 10-15 repetições</span>
+                        </li>
+                      </ul>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-2">Descanso: 60s</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Retorno à Calma */}
+            <div className="bg-white dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Trophy className="text-blue-500" size={18} />
+                <h5 className="font-bold text-slate-900 dark:text-white">3. Retorno à Calma (5-10 minutos)</h5>
+              </div>
+              <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                <li className="flex gap-2">
+                  <span className="text-blue-500 font-bold">•</span>
+                  <span>Alongamentos estáticos: dorsais, peitorais, ombros, pernas (5 min)</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-500 font-bold">•</span>
+                  <span>Respiração controlada e relaxamento muscular</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-blue-500 font-bold">•</span>
+                  <span>Mobilidade de punhos e ombros</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Notas */}
+            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
+              <div className="flex items-start gap-2">
+                <Info className="text-amber-600 shrink-0 mt-0.5" size={16} />
+                <div className="text-sm text-slate-700 dark:text-slate-300">
+                  <span className="font-bold text-amber-600">Notas:</span> Ajuste as repetições e progressões conforme seu nível. 
+                  Foco na execução perfeita antes de aumentar volume. Frequência recomendada: 3-4x por semana com pelo menos um dia de descanso entre sessões.
+                  Duração total: aproximadamente 55-65 minutos.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
