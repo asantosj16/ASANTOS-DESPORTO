@@ -19,7 +19,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentSection, setSection }) => {
     { id: AppSection.TRIATHLON, label: 'Triathlon', icon: Zap },
     { id: AppSection.HYROX, label: 'Hyrox', icon: Timer },
     { id: AppSection.NUTRICAO, label: 'Saúde', icon: Activity },
-    { id: AppSection.DOCUMENTOS, label: 'Docs', icon: FileText },
+    { id: AppSection.DOCUMENTOS, label: 'Referências', icon: FileText },
   ];
 
   return (

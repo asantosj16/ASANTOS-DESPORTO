@@ -22,6 +22,7 @@ import ScientificDocuments from './components/ScientificDocuments';
 import TestesAptidaoFisica from './components/TestesAptidaoFisica';
 import MusculacaoTerceiraIdade from './components/MusculacaoTerceiraIdade';
 import ReabilitacaoMuscular from './components/ReabilitacaoMuscular';
+import TriathlonSwimStrategy from './components/TriathlonSwimStrategy';
 import { GraduationCap, Dumbbell, Waves, FileText, Footprints, Apple, Timer, Zap } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -55,7 +56,7 @@ const App: React.FC = () => {
                 { id: AppSection.HYROX, title: 'Hyrox', icon: Timer, color: 'bg-purple-600', desc: 'Treino Híbrido de Alta Intensidade' },
                 { id: AppSection.CORRIDA, title: 'Performance em Corrida', icon: Footprints, color: 'bg-orange-600', desc: 'Ritmo e Planilhas de Endurance' },
                 { id: AppSection.NUTRICAO, title: 'Nutrição Desportiva', icon: Apple, color: 'bg-green-600', desc: 'Alimentação para Performance' },
-                { id: AppSection.DOCUMENTOS, title: 'Documentos Científicos', icon: FileText, color: 'bg-emerald-600', desc: 'Base de Dados e Evidências HD' },
+                { id: AppSection.DOCUMENTOS, title: 'Referência Científica', icon: FileText, color: 'bg-emerald-600', desc: 'Base de Dados e Evidências HD' },
               ].map((card, i) => (
                 <button
                   key={card.id}
@@ -150,9 +151,12 @@ const App: React.FC = () => {
         );
       case AppSection.DOCUMENTOS:
         return (
-          <SectionWrapper icon={<FileText />} title="Documentos" subtitle="Base de Dados Científicos e Evidências HD." colorClass="bg-emerald-600">
+          <SectionWrapper icon={<FileText />} title="Referência Científica" subtitle="Base de Dados Científicos e Evidências HD." colorClass="bg-emerald-600">
              <AICoach section={AppSection.DOCUMENTOS} />
-             <ScientificDocuments />
+             <div className="space-y-8 md:space-y-12">
+               <TriathlonSwimStrategy />
+               <ScientificDocuments />
+             </div>
           </SectionWrapper>
         );
       default:
