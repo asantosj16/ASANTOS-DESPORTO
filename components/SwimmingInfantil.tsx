@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 // Added Activity and ClipboardList to the imports to fix "Cannot find name" errors
-import { Waves, Baby, Sparkles, BookOpen, GraduationCap, ShieldCheck, Heart, ToyBrick, ChevronRight, PlayCircle, Activity, ClipboardList } from 'lucide-react';
+import { Waves, Baby, Sparkles, BookOpen, GraduationCap, ShieldCheck, Heart, ToyBrick, ChevronRight, PlayCircle, Activity, ClipboardList, X } from 'lucide-react';
 
 type AgeGroup = 'bebes' | 'adaptacao' | 'aprendizagem';
 
@@ -59,6 +59,7 @@ const CHILD_PLANS: Record<AgeGroup, LessonPlan[]> = {
 
 const SwimmingInfantil: React.FC = () => {
   const [activeTab, setActiveTab] = useState<AgeGroup>('bebes');
+  const [selectedPlan, setSelectedPlan] = useState<LessonPlan | null>(null);
 
   const ageGroups: { id: AgeGroup; label: string; icon: any; range: string }[] = [
     { id: 'bebes', label: 'Bebés', icon: Baby, range: '6m - 3 anos' },
@@ -162,7 +163,10 @@ const SwimmingInfantil: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                  <button className="mt-6 flex items-center gap-2 text-[9px] font-black text-slate-500 group-hover:text-white uppercase tracking-widest transition-all">
+                  <button 
+                    onClick={() => setSelectedPlan(plan)}
+                    className="mt-6 flex items-center gap-2 text-[9px] font-black text-slate-500 group-hover:text-white uppercase tracking-widest transition-all"
+                  >
                     Visualizar Demo <PlayCircle size={14} className="text-sky-500" />
                   </button>
                 </div>
@@ -193,6 +197,60 @@ const SwimmingInfantil: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {selectedPlan && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-fade-in">
+          <div className="bg-slate-900 w-full max-w-lg rounded-3xl p-8 shadow-2xl border border-slate-800 animate-scale-up relative">
+            <button 
+              onClick={() => setSelectedPlan(null)}
+              className="absolute top-4 right-4 p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white transition-colors"
+            >
+              <X size={20} />
+            </button>
+
+            <div className="mb-6">
+                <span className="text-[10px] font-black px-2 py-1 rounded-md text-slate-900 bg-sky-500 mb-2 inline-block">
+                    DEMONSTRAÇÃO
+                </span>
+                <h3 className="text-2xl font-black text-white">{selectedPlan.title}</h3>
+                <p className="text-sm text-slate-400">{selectedPlan.objective}</p>
+            </div>
+
+            <div className="space-y-4">
+                <div className="aspect-video rounded-xl bg-slate-800 flex items-center justify-center border border-slate-700">
+                    <div className="text-center p-4">
+                        <PlayCircle size={48} className="text-slate-600 mx-auto mb-2" />
+                        <p className="text-xs text-slate-500 font-medium">Vídeo demonstrativo indisponível no momento.</p>
+                    </div>
+                </div>
+
+                <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-800">
+                    <h5 className="font-bold text-white mb-3 text-xs uppercase tracking-wider flex items-center gap-2">
+                        <Activity size={14} className="text-sky-500" />
+                        Sequência de Atividades
+                    </h5>
+                    <ul className="space-y-2">
+                        {selectedPlan.activities.map((item, i) => (
+                            <li key={i} className="text-xs text-slate-300 flex items-start gap-2">
+                                <div className="w-1.5 h-1.5 rounded-full bg-sky-500 mt-1 flex-shrink-0" />
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <div className="mt-6 pt-6 border-t border-slate-800 flex justify-end">
+                <button 
+                  onClick={() => setSelectedPlan(null)}
+                  className="px-6 py-2 bg-white text-slate-900 font-bold rounded-xl text-sm hover:opacity-90 transition-opacity"
+                >
+                    Fechar
+                </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
