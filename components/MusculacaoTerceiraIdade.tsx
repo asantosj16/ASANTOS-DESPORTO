@@ -121,41 +121,84 @@ const MusculacaoTerceiraIdade: React.FC = () => {
       <div className="space-y-4">
         <h4 className="text-lg font-bold text-white">Exemplo de Sessão de Treino</h4>
         
-        <div className="space-y-3">
-          <div className="bg-slate-800/30 p-4 rounded-xl">
-            <div className="font-semibold text-amber-400 mb-2">1. Aquecimento (10-15 min)</div>
-            <div className="text-sm text-slate-300">
-              Caminhada leve, mobilidade articular, alongamentos dinâmicos
-            </div>
-          </div>
-
-          <div className="bg-slate-800/30 p-4 rounded-xl">
-            <div className="font-semibold text-amber-400 mb-2">2. Treino de Força (30-40 min)</div>
-            <ul className="text-sm text-slate-300 space-y-2 mt-2">
-              <li>• Leg Press: 3x12</li>
-              <li>• Cadeira Extensora: 2x12</li>
-              <li>• Cadeira Flexora: 2x12</li>
-              <li>• Supino na máquina: 3x12</li>
-              <li>• Remada na máquina: 3x12</li>
-              <li>• Desenvolvimento na máquina: 2x12</li>
-              <li>• Rosca direta: 2x12</li>
-              <li>• Tríceps no pulley: 2x12</li>
-            </ul>
-          </div>
-
-          <div className="bg-slate-800/30 p-4 rounded-xl">
-            <div className="font-semibold text-amber-400 mb-2">3. Trabalho de Equilíbrio (5-10 min)</div>
-            <div className="text-sm text-slate-300">
-              Apoio unipodal, marcha com obstáculos, exercícios propriocetivos
-            </div>
-          </div>
-
-          <div className="bg-slate-800/30 p-4 rounded-xl">
-            <div className="font-semibold text-amber-400 mb-2">4. Alongamento (5-10 min)</div>
-            <div className="text-sm text-slate-300">
-              Alongamentos estáticos dos principais grupos musculares
-            </div>
-          </div>
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+          <table className="w-full text-sm text-left rtl:text-right text-slate-300">
+            <thead className="text-xs uppercase bg-slate-700 text-amber-400">
+              <tr>
+                <th scope="col" className="px-6 py-3">Fase do Treino</th>
+                <th scope="col" className="px-6 py-3">Exercício</th>
+                <th scope="col" className="px-6 py-3">Séries / Reps / Tempo</th>
+                <th scope="col" className="px-6 py-3">Notas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4 font-medium text-white">1. Aquecimento</td>
+                <td className="px-6 py-4">Caminhada leve<br/>Mobilidade articular<br/>Alongamentos dinâmicos</td>
+                <td className="px-6 py-4">10-15 min</td>
+                <td className="px-6 py-4">Preparação articular e elevação da temperatura</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4 font-medium text-white" rowSpan={8}>2. Treino de Força</td>
+                <td className="px-6 py-4">Leg Press</td>
+                <td className="px-6 py-4">3 x 12</td>
+                <td className="px-6 py-4">Foco em quadríceps</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4">Cadeira Extensora</td>
+                <td className="px-6 py-4">2 x 12</td>
+                <td className="px-6 py-4">Isolamento de quadríceps</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4">Cadeira Flexora</td>
+                <td className="px-6 py-4">2 x 12</td>
+                <td className="px-6 py-4">Posterior da coxa</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4">Supino na máquina</td>
+                <td className="px-6 py-4">3 x 12</td>
+                <td className="px-6 py-4">Peitoral e tríceps</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4">Remada na máquina</td>
+                <td className="px-6 py-4">3 x 12</td>
+                <td className="px-6 py-4">Costas e bíceps</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4">Desenvolvimento na máquina</td>
+                <td className="px-6 py-4">2 x 12</td>
+                <td className="px-6 py-4">Ombros</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4">Rosca direta (Halteres/Cabo)</td>
+                <td className="px-6 py-4">2 x 12</td>
+                <td className="px-6 py-4">Bíceps</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4">Tríceps no pulley</td>
+                <td className="px-6 py-4">2 x 12</td>
+                <td className="px-6 py-4">Tríceps</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4 font-medium text-white">3. Trabalho de Equilíbrio</td>
+                <td className="px-6 py-4">Apoio unipodal<br/>Marcha com obstáculos<br/>Exercícios propriocetivos</td>
+                <td className="px-6 py-4">5-10 min</td>
+                <td className="px-6 py-4">Prevenção de quedas</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4 font-medium text-white">4. Cardio Final</td>
+                <td className="px-6 py-4">Bicicleta ergométrica ou Elíptica</td>
+                <td className="px-6 py-4">10 min</td>
+                <td className="px-6 py-4">Intensidade leve a moderada</td>
+              </tr>
+              <tr className="bg-slate-800 border-b border-slate-700">
+                <td className="px-6 py-4 font-medium text-white">5. Alongamentos</td>
+                <td className="px-6 py-4">Alongamentos estáticos (Corpo todo)</td>
+                <td className="px-6 py-4">5-10 min</td>
+                <td className="px-6 py-4">Relaxamento</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 

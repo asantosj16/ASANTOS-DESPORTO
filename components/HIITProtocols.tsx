@@ -134,135 +134,98 @@ const HIITProtocols: React.FC = () => {
           <h4 className="text-xl font-bold text-slate-900 dark:text-white">Exemplo de Sessão de Treino HIIT</h4>
         </div>
 
-        <div className="space-y-6">
-          {/* Aquecimento */}
-          <div className="bg-white dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Timer className="text-blue-500" size={18} />
-              <h5 className="font-bold text-slate-900 dark:text-white">1. Aquecimento (8-10 minutos)</h5>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-              <li className="flex gap-2">
-                <span className="text-orange-500 font-bold">•</span>
-                <span>3 minutos de cardio leve (corrida, bicicleta ou remo)</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-orange-500 font-bold">•</span>
-                <span>Mobilidade articular: ombros, ancas, joelhos (2 min)</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-orange-500 font-bold">•</span>
-                <span>10 agachamentos + 10 flexões + 10 escaladores</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-orange-500 font-bold">•</span>
-                <span>Alongamentos dinâmicos (2 min)</span>
-              </li>
-            </ul>
-          </div>
+          <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left rtl:text-right text-slate-500 dark:text-slate-400">
+              <thead className="text-xs uppercase bg-orange-100 dark:bg-orange-900/50 text-orange-700 dark:text-orange-300">
+                <tr>
+                  <th scope="col" className="px-6 py-3">Fase do Treino</th>
+                  <th scope="col" className="px-6 py-3">Exercício / Bloco</th>
+                  <th scope="col" className="px-6 py-3">Tempo / Volume</th>
+                  <th scope="col" className="px-6 py-3">Detalhes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* 1. Aquecimento */}
+                <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                  <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">1. Aquecimento</td>
+                  <td className="px-6 py-4">Cardio Leve (Corrida/Bike)<br/>Mobilidade Articular<br/>Agachamentos + Flexões</td>
+                  <td className="px-6 py-4">8-10 min</td>
+                  <td className="px-6 py-4">Elevar FC gradualmente</td>
+                </tr>
 
-          {/* Parte Principal */}
-          <div className="bg-gradient-to-r from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-200 dark:border-orange-800 rounded-2xl p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Flame className="text-orange-600" size={18} />
-              <h5 className="font-bold text-slate-900 dark:text-white">2. Parte Principal - Protocolo Tabata Modificado (20 minutos)</h5>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="bg-white/70 dark:bg-slate-900/40 rounded-xl p-4">
-                <div className="font-bold text-orange-600 mb-2">Bloco 1 - Tabata (4 min)</div>
-                <div className="text-sm text-slate-700 dark:text-slate-300 mb-2 italic">20s trabalho / 10s descanso x 8 rounds</div>
-                <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
-                  <li className="flex gap-2">
-                    <CheckCircle2 className="text-green-500 shrink-0 mt-0.5" size={14} />
-                    <span><strong>Burpees</strong> - 4 rounds</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <CheckCircle2 className="text-green-500 shrink-0 mt-0.5" size={14} />
-                    <span><strong>Mountain Climbers</strong> - 4 rounds</span>
-                  </li>
-                </ul>
-                <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">Descanso: 2 minutos</div>
-              </div>
+                {/* 2. Parte Principal - Bloco 1 */}
+                <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white" rowSpan={2}>2. Parte Principal<br/><span className="text-orange-500">Bloco 1 - Tabata</span></td>
+                    <td className="px-6 py-4">Burpees</td>
+                    <td className="px-6 py-4">4 rounds (20s on / 10s off)</td>
+                    <td className="px-6 py-4">Alta intensidade</td>
+                </tr>
+                <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4">Mountain Climbers</td>
+                    <td className="px-6 py-4">4 rounds (20s on / 10s off)</td>
+                    <td className="px-6 py-4">Velocidade e Core</td>
+                </tr>
 
-              <div className="bg-white/70 dark:bg-slate-900/40 rounded-xl p-4">
-                <div className="font-bold text-orange-600 mb-2">Bloco 2 - EMOM (10 min)</div>
-                <div className="text-sm text-slate-700 dark:text-slate-300 mb-2 italic">A cada minuto, realizar:</div>
-                <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
-                  <li className="flex gap-2">
-                    <span className="text-orange-500 font-bold">Min 1:</span>
-                    <span>15 Kettlebell Swings</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-orange-500 font-bold">Min 2:</span>
-                    <span>12 Box Jumps</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-orange-500 font-bold">Min 3:</span>
-                    <span>10 Thrusters</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-orange-500 font-bold">Min 4:</span>
-                    <span>20 Jumping Jacks</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <span className="text-orange-500 font-bold">Min 5:</span>
-                    <span>30s Sprint no lugar</span>
-                  </li>
-                </ul>
-                <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">Repetir o ciclo 2x (total 10 min)</div>
-                <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">Descanso: 2 minutos</div>
-              </div>
+                 {/* 2. Parte Principal - Bloco 2 */}
+                <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white" rowSpan={5}>2. Parte Principal<br/><span className="text-orange-500">Bloco 2 - EMOM</span><br/><span className="text-xs font-normal">Repetir ciclo 2x</span></td>
+                    <td className="px-6 py-4">Min 1: 15 Kettlebell Swings</td>
+                    <td className="px-6 py-4">1 min</td>
+                    <td className="px-6 py-4">Potência de quadril</td>
+                </tr>
+                 <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4">Min 2: 12 Box Jumps</td>
+                    <td className="px-6 py-4">1 min</td>
+                    <td className="px-6 py-4">Explosão</td>
+                </tr>
+                 <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4">Min 3: 10 Thrusters</td>
+                    <td className="px-6 py-4">1 min</td>
+                    <td className="px-6 py-4">Força e Resistência</td>
+                </tr>
+                 <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4">Min 4: 20 Jumping Jacks</td>
+                    <td className="px-6 py-4">1 min</td>
+                    <td className="px-6 py-4">Aeróbico</td>
+                </tr>
+                 <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4">Min 5: 30s Sprint</td>
+                    <td className="px-6 py-4">1 min (30s sprint / 30s rest)</td>
+                    <td className="px-6 py-4">Pico de intensidade</td>
+                </tr>
 
-              <div className="bg-white/70 dark:bg-slate-900/40 rounded-xl p-4">
-                <div className="font-bold text-orange-600 mb-2">Bloco 3 - Finisher (2 min)</div>
-                <div className="text-sm text-slate-700 dark:text-slate-300 mb-2 italic">AMRAP (máximo de voltas em 2 minutos)</div>
-                <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
-                  <li className="flex gap-2">
-                    <Zap className="text-yellow-500 shrink-0 mt-0.5" size={14} />
-                    <span>5 Burpees</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Zap className="text-yellow-500 shrink-0 mt-0.5" size={14} />
-                    <span>10 Flexões</span>
-                  </li>
-                  <li className="flex gap-2">
-                    <Zap className="text-yellow-500 shrink-0 mt-0.5" size={14} />
-                    <span>15 Agachamentos</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+                 {/* 2. Parte Principal - Bloco 3 */}
+                <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">2. Parte Principal<br/><span className="text-orange-500">Bloco 3 - Finisher (AMRAP)</span></td>
+                    <td className="px-6 py-4">5 Burpees + 10 Flexões + 15 Agachamentos</td>
+                    <td className="px-6 py-4">2 min (Máximo de voltas)</td>
+                    <td className="px-6 py-4">Esvaziar o tanque</td>
+                </tr>
 
-          {/* Retorno à Calma */}
-          <div className="bg-white dark:bg-slate-900/40 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Target className="text-blue-500" size={18} />
-              <h5 className="font-bold text-slate-900 dark:text-white">3. Retorno à Calma (5-7 minutos)</h5>
-            </div>
-            <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-              <li className="flex gap-2">
-                <span className="text-blue-500 font-bold">•</span>
-                <span>Caminhada leve: 2-3 minutos</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-blue-500 font-bold">•</span>
-                <span>Alongamentos estáticos dos principais grupos musculares</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-blue-500 font-bold">•</span>
-                <span>Respiração profunda e controlo da frequência cardíaca</span>
-              </li>
-            </ul>
-          </div>
+                 {/* New Section: Active Recovery */}
+                 <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                    <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">3. Active Recovery</td>
+                    <td className="px-6 py-4">Caminhada muito leve</td>
+                    <td className="px-6 py-4">3-5 min</td>
+                    <td className="px-6 py-4">Baixar FC antes do alongamento</td>
+                </tr>
 
-          {/* Notas Importantes */}
-          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4">
-            <div className="flex items-start gap-2">
-              <Info className="text-amber-600 shrink-0 mt-0.5" size={16} />
-              <div className="text-sm text-slate-700 dark:text-slate-300">
-                <span className="font-bold text-amber-600">Notas:</span> Ajuste a intensidade conforme o nível de condicionamento. 
+                {/* Retorno à Calma */}
+                <tr className="bg-white border-b dark:bg-slate-800 dark:border-slate-700">
+                  <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">4. Retorno à Calma</td>
+                  <td className="px-6 py-4">Alongamentos estáticos<br/>Respiração profunda</td>
+                  <td className="px-6 py-4">5-7 min</td>
+                  <td className="px-6 py-4">Volta à calma</td>
+                </tr>
+              </tbody>
+            </table>
+
+            {/* Notas Importantes */}
+            <div className="bg-amber-50 dark:bg-amber-900/20 border-t border-slate-200 dark:border-slate-700 p-4">
+              <div className="flex items-start gap-2">
+                <Info className="text-amber-600 shrink-0 mt-0.5" size={16} />
+                <div className="text-sm text-slate-700 dark:text-slate-300">
+                  <span className="font-bold text-amber-600">Notas:</span> Ajuste a intensidade conforme o nível de condicionamento. 
                 Mantenha hidratação adequada. Duração total da sessão: aproximadamente 35-40 minutos.
               </div>
             </div>
