@@ -58,7 +58,7 @@ const CHILD_PLANS: Record<AgeGroup, LessonPlan[]> = {
 };
 
 const SwimmingInfantil: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<AgeGroup>('adaptacao');
+  const [activeTab, setActiveTab] = useState<AgeGroup>('bebes');
 
   const ageGroups: { id: AgeGroup; label: string; icon: any; range: string }[] = [
     { id: 'bebes', label: 'Bebés', icon: Baby, range: '6m - 3 anos' },
